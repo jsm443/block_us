@@ -1,14 +1,10 @@
-(**A data structure which creates the board*)
-
-type box = int (* Int is filler. GUI needs to be implemented here *)
-
-type fill =
-  | Orange of box
-  | Purple of box
+exception Unimplemented
+(**A data structure which creates the board**)
 
 type square =
   | Empty
-  | Filled of fill
+  | Orange
+  | Purple
 
 let board =
   [|
@@ -237,3 +233,6 @@ let board =
       Empty;
     |];
   |]
+
+let get_board = board
+let set_board = raise Unimplemented
