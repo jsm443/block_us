@@ -1,0 +1,5 @@
+lib: [
+  "_build/install/default/lib/Game/META"
+  "_build/install/default/lib/Game/dune-package"
+  "_build/install/default/lib/Game/opam"
+]

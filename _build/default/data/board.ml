@@ -7,6 +7,7 @@ type square =
   | Purple
   | Row of int
   | Col of char
+  | Test
 
 let board =
   [|

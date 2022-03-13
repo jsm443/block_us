@@ -1,0 +1,6 @@
+(** @canonical Data.Board *)
+module Board = Data__Board
+
+
+(** @canonical Data.Print *)
+module Print = Data__Print
