@@ -7,7 +7,6 @@ type square =
   | Purple
   | Row of int
   | Col of char
-  | Test
 
 let board =
   [|
@@ -268,5 +267,5 @@ let board =
     |];
   |]
 
-let get_board = board
-let set_board = raise Unimplemented
+let set (r : int) (c : char) (new_val : square) =
+  board.(r - 1).(Char.code c - 65) <- new_val

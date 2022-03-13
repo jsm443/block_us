@@ -1,1 +1,1 @@
-data/board.ml:
+data/board.ml: Array Char

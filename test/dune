@@ -1,2 +1,3 @@
 (executable
- (name block_us))
+ (name main)
+ (libraries data ounit2))

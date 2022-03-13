@@ -1,10 +1,10 @@
-# dune build
+# dune exec test/main.exe
 # OCAMLPARAM: unset
 # Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
-$ /usr/bin/nproc > /tmp/dunea84581.output 2> /dev/null
+$ /usr/bin/nproc > /tmp/dunef95cc4.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune68aaa7.output
+$ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dunefb08ea.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -118,56 +118,8 @@ $ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune68aaa
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamldep.opt -modules -intf data/board.mli) > _build/default/data/.data.objs/board.mli.d
-$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamldep.opt -modules -impl data/board.ml) > _build/default/data/.data.objs/board.ml.d
+# Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
 $ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamldep.opt -modules -impl data/print.ml) > _build/default/data/.data.objs/print.ml.d
-$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/bytes -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Board.cmi -c -intf data/board.mli)
-$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/bytes -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Board.cmx -c -impl data/board.ml)
-> File "data/board.ml", line 1:
-> Error: The implementation data/board.ml
->        does not match the interface data/.data.objs/byte/data__Board.cmi:
->        Type declarations do not match:
->          type square =
->              Empty
->            | Orange
->            | Purple
->            | Row of int
->            | Col of char
->            | Test
->        is not included in
->          type square = Empty | Orange | Purple | Row of int | Col of char
->        The constructor Test is only present in the first declaration.
->        File "data/board.mli", lines 1-6, characters 0-15:
->          Expected declaration
->        File "data/board.ml", lines 4-10, characters 0-8: Actual declaration
-[2]
-$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/bytes -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Board.cmo -c -impl data/board.ml)
-> File "data/board.ml", line 1:
-> Error: The implementation data/board.ml
->        does not match the interface data/.data.objs/byte/data__Board.cmi:
->        Type declarations do not match:
->          type square =
->              Empty
->            | Orange
->            | Purple
->            | Row of int
->            | Col of char
->            | Test
->        is not included in
->          type square = Empty | Orange | Purple | Row of int | Col of char
->        The constructor Test is only present in the first declaration.
->        File "data/board.mli", lines 1-6, characters 0-15:
->          Expected declaration
->        File "data/board.ml", lines 4-10, characters 0-8: Actual declaration
-[2]
-$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/bytes -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Print.cmo -c -impl data/print.ml)
-> File "data/print.ml", line 2, characters 0-60:
-> 2 | (**Prints an ANSITTerminal color c.  For colors see github*)
->     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> Error (warning 50 [unexpected-docstring]): ambiguous documentation comment
-> File "data/print.ml", line 7, characters 4-8:
-> 7 |   | Test -> "Test"
->         ^^^^
-> Error: This variant pattern is expected to have type Board.square
->        The constructor Test does not belong to type Board.square
-[2]
+$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/bytes -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Print.cmx -c -impl data/print.ml)
+$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o data/data.cmxa data/.data.objs/native/data.cmx data/.data.objs/native/data__Board.cmx data/.data.objs/native/data__Print.cmx)
+$ (cd _build/default && /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/main.exe /home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml/unix.cmxa -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal/ANSITerminal.cmxa -I /home/jacksmerrill/.opam/cs3110-2021fa/lib/ANSITerminal data/data.cmxa /home/jacksmerrill/.opam/cs3110-2021fa/lib/stdlib-shims/stdlib_shims.cmxa /home/jacksmerrill/.opam/cs3110-2021fa/lib/ounit2/advanced/oUnitAdvanced.cmxa /home/jacksmerrill/.opam/cs3110-2021fa/lib/ounit2/oUnit.cmxa test/.main.eobjs/native/dune__exe__Main.cmx)

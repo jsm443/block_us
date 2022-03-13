@@ -1,20 +1,25 @@
-let pr_color c = ANSITerminal.print_string [ c ]
-(**Prints an ANSITTerminal color c.  For colors see github*)
-let pr_y = pr_color ANSITerminal.yellow
+(*Prints an ANSITTerminal color c. For colors see github*)
 
 let print_square (s : Board.square) =
   match s with
-  | Test -> "Test"
-  | Row x -> string_of_int x
-  | Col x -> Char.escaped x
-  | Empty -> "|empty"
-  | Orange -> "|Orange"
-  | Purple -> "|Purple"
-  
+  | Empty ->
+      ANSITerminal.print_string [ ANSITerminal.white ]
+        (124 |> Char.chr |> Char.escaped)
+  | Orange ->
+      ANSITerminal.print_string [ ANSITerminal.yellow ]
+        (124 |> Char.chr |> Char.escaped)
+  | Purple ->
+      ANSITerminal.print_string
+        [ ANSITerminal.magenta ]
+        (254 |> Char.chr |> Char.escaped)
+  | Row x ->
+      ANSITerminal.print_string [ ANSITerminal.black ] (string_of_int x)
+  | Col x ->
+      ANSITerminal.print_string [ ANSITerminal.black ] (Char.escaped x)
 
-let print_row (row_num : int) (row : Board.square array)  =
-  
+let print_row (row : Board.square array) =
+  print_endline "";
   Array.map print_square row
 
-let  print_board (board : Board.square array array) =
-Array.map print_row board
+let print_board (board : Board.square array array) =
+  Array.map print_row board
