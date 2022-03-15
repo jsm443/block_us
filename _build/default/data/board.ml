@@ -2,6 +2,7 @@ exception Unimplemented
 (**A data structure which creates the board**)
 
 type square =
+  | Space
   | Empty
   | Orange
   | Purple
@@ -11,7 +12,7 @@ type square =
 let board =
   [|
     [|
-      Empty;
+      Space;
       Col 'A';
       Col 'B';
       Col 'C';
@@ -267,5 +268,17 @@ let board =
     |];
   |]
 
-let set (r : int) (c : char) (new_val : square) =
-  board.(r - 1).(Char.code c - 65) <- new_val
+let set_board (r : int) (c : char) (new_val : square) =
+  board.(r).(Char.code c - 64) <- new_val
+;;
+
+set_board 1 'B' Orange;
+set_board 1 'C' Orange;
+set_board 2 'C' Orange;
+set_board 3 'C' Orange;
+set_board 4 'C' Orange;
+set_board 10 'B' Purple;
+set_board 10 'C' Purple;
+set_board 11 'C' Purple;
+set_board 12 'C' Purple;
+set_board 13 'C' Purple

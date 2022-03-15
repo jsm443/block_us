@@ -3,7 +3,6 @@ open Data
 open Print
 open Board
 
-
 let board_test (name: string) (exp_out: Board.square array array) : test =
   name >:: fun _ ->
     assert_equal (print_board exp_out) ((print_board board))

@@ -1,4 +1,5 @@
 type square =
+  | Space
   | Empty
   | Orange
   | Purple
@@ -8,4 +9,4 @@ type square =
 exception Unimplemented
 
 val board : square array array
-val set : int -> char -> square -> unit
+val set_board : int -> char -> square -> unit
