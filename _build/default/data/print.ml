@@ -5,7 +5,7 @@ let print_square (s : Board.square) =
   | Empty ->
       ANSITerminal.print_string [ ANSITerminal.white ]
         ("  " ^ (124 |> Char.chr |> Char.escaped))
-  | Orange ->
+  | Yellow ->
       ANSITerminal.print_string [ ANSITerminal.on_yellow ] "  ";
       ANSITerminal.print_string [ ANSITerminal.white ] "|"
   | Purple ->

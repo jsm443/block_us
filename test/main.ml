@@ -3,8 +3,8 @@ open Data
 open Print
 open Board
 open Pieces
-let piece1 = {color = Orange; coordinates = p1};;
-let piece2 = {color = Orange; coordinates = p2};;
+let piece1 = {color = Yellow; coordinates = p1};;
+let piece2 = {color = Yellow; coordinates = p2};;
 
 place piece1 { r = 5; c = 'F' };;
 place piece2 { r = 7; c = 'A' }

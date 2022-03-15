@@ -1,7 +1,7 @@
 type square =
   | Space
   | Empty
-  | Orange
+  | Yellow
   | Purple
   | Row of int
   | Col of char
