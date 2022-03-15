@@ -2,5 +2,9 @@
 module Board = Data__Board
 
 
+(** @canonical Data.Pieces *)
+module Pieces = Data__Pieces
+
+
 (** @canonical Data.Print *)
 module Print = Data__Print

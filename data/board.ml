@@ -268,17 +268,13 @@ let board =
     |];
   |]
 
+(*eventually this will check to make sure board is empty at this spot*)
+(*set board should take in a point instead of r and c*)
 let set_board (r : int) (c : char) (new_val : square) =
   board.(r).(Char.code c - 64) <- new_val
-;;
 
-set_board 1 'B' Orange;
-set_board 1 'C' Orange;
-set_board 2 'C' Orange;
-set_board 3 'C' Orange;
-set_board 4 'C' Orange;
-set_board 10 'B' Purple;
-set_board 10 'C' Purple;
-set_board 11 'C' Purple;
-set_board 12 'C' Purple;
-set_board 13 'C' Purple
+(*testing with two L pieces*)
+(*set_board 1 'B' Orange; set_board 1 'C' Orange; set_board 2 'C'
+  Orange; set_board 3 'C' Orange; set_board 4 'C' Orange; set_board 10
+  'B' Purple; set_board 10 'C' Purple; set_board 11 'C' Purple;
+  set_board 12 'C' Purple; set_board 13 'C' Purple*)
