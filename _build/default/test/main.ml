@@ -20,14 +20,16 @@ place piece3 { r = 10; c = 'I' };;
 place piece4 { r = 12; c = 'F' };;
 place piece5 { r = 3; c = 'K' };;
 place piece6 {r = 3; c = 'I' };;
-place piece7 { r = 12; c = 'L' };;
+place piece7 { r = 13; c = 'L' };;
 place piece8 { r = 10; c = 'A' };;
 place piece9 { r = 1; c = 'B' };;
 place piece10 { r = 7; c = 'K' };;
+print_board board;;
 
 let board_test (name: string) (exp_out: Board.square array array) : test =
   name >:: fun _ ->
-    assert_equal (print_board exp_out) ((print_board board))
+    (*assert_equal (print_board exp_out) ((print_board board))*)
+    assert_equal exp_out board
     
 let board_tests = 
   [board_test "Print Board" (board)]
