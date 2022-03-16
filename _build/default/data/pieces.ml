@@ -96,6 +96,35 @@ let p10 (start : point) : point list =
     { r = start.r - 1; c = next_char start.c};
   ]
 
+(* Cross *)
+let p11 (start : point) : point list =
+  [
+    { r = start.r; c = start.c }; 
+    { r = start.r; c = next_char start.c };
+    { r = start.r; c = next_char (next_char start.c) };
+    { r = start.r - 1; c = next_char start.c};
+    { r = start.r + 1; c = next_char start.c}
+  ]
+
+(* P *)
+let p12 (start : point) : point list =
+  [
+    { r = start.r; c = start.c }; 
+    { r = start.r; c = next_char start.c };
+    { r = start.r + 1; c = start.c };
+    { r = start.r + 1; c = next_char start.c};
+    { r = start.r + 2; c = start.c}
+  ]
+
+(** Longer squiggle *)
+let p13 (start : point) : point list =
+  [
+    { r = start.r; c = start.c }; 
+    { r = start.r + 1; c = start.c };
+    { r = start.r + 1; c = next_char start.c};
+    { r = start.r + 2; c = next_char start.c};
+    { r = start.r + 2; c = next_char (next_char start.c)};
+  ]
 let place_tile (point : point) (p : piece) : unit =
   Board.set_board point.r point.c p.color
 

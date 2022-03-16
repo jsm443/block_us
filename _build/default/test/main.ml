@@ -13,6 +13,9 @@ let piece7 = {color = Yellow; coordinates = p7};;
 let piece8 = {color = Purple; coordinates = p8};;
 let piece9 = {color = Yellow; coordinates = p9};;
 let piece10 = {color = Yellow; coordinates = p10};;
+let piece11 = {color = Purple; coordinates = p11};;
+let piece12 = {color = Yellow; coordinates = p12};;
+let piece13 = {color = Yellow; coordinates = p13};;
 
 place piece1 { r = 5; c = 'F' };;
 place piece2 { r = 7; c = 'A' };;
@@ -24,6 +27,9 @@ place piece7 { r = 13; c = 'L' };;
 place piece8 { r = 10; c = 'A' };;
 place piece9 { r = 1; c = 'B' };;
 place piece10 { r = 7; c = 'K' };;
+place piece11 { r = 5; c = 'C' };;
+place piece12 { r = 7; c = 'G' };;
+place piece13 { r = 11; c = 'A' };;
 print_board board;;
 
 let board_test (name: string) (exp_out: Board.square array array) : test =

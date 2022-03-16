@@ -18,4 +18,7 @@ val p7 : point -> point list
 val p8 : point -> point list
 val p9 : point -> point list
 val p10 : point -> point list
+val p11 : point -> point list
+val p12 : point -> point list
+val p13 : point -> point list
 val place : piece -> point -> unit
