@@ -1,91 +1,92 @@
 # dune exec test/main.exe
 # OCAMLPARAM: unset
-# Shared cache: disabled
-# Workspace root: /Users/shreeyaindap/Desktop/desktop/code/3110/block_us
+# Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
+$ /usr/bin/nproc > /tmp/dune116bcc.output 2> /dev/null
 # Auto-detected concurrency: 8
-$ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/gt/mh0jpcqx5ms5m46lk3tl7w700000gn/T/dune_ab35fa_output
+# disable binary cache
+$ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune1d4390.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
-#  ; profile = Dev
+#  ; profile = Dyn
 #  ; merlin = true
 #  ; for_host = None
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/toplevel"
-#  ; ocaml_bin = External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin"
-#  ; ocaml = Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocaml"
-#  ; ocamlc = External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt"
+#      Some External "/home/jacksmerrill/.opam/cs3110-2021fa/lib/toplevel"
+#  ; ocaml_bin = External "/home/jacksmerrill/.opam/cs3110-2021fa/bin"
+#  ; ocaml = Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocaml"
+#  ; ocamlc = External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt"
 #  ; ocamlopt =
-#      Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt"
+#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt"
 #  ; ocamldep =
-#      Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamldep.opt"
+#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
+#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
 #  ; env =
 #      map
 #        { "DUNE_OCAML_HARDCODED" :
-#            "/Users/shreeyaindap/.opam/cs3110-2021fa/lib"
+#            "/home/jacksmerrill/.opam/cs3110-2021fa/lib"
 #        ; "DUNE_OCAML_STDLIB" :
-#            "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml"
+#            "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
 #        ; "DUNE_SOURCEROOT" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us"
 #        ; "INSIDE_DUNE" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/default"
-#        ; "MANPATH" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/bin"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/default"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/lib"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/lib"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/lib/toplevel"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/Users/shreeyaindap/.opam/cs3110-2021fa/lib" ]
+#  ; findlib_path = [ External "/home/jacksmerrill/.opam/cs3110-2021fa/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
 #      ; standard_library_default =
-#          "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml"
-#      ; standard_library = "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml"
+#          "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
+#      ; standard_library = "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
-#      ; c_compiler = "cc"
-#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; c_compiler = "gcc"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
 #      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
-#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
 #      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
 #      ; bytecomp_c_compiler =
-#          [ "cc"
+#          [ "gcc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
+#          ; "-fPIC"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
 #          ]
-#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
 #      ; native_c_compiler =
-#          [ "cc"
+#          [ "gcc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
+#          ; "-fPIC"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
 #          ]
-#      ; native_c_libraries = [ "-lm" ]
-#      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
+#      ; native_c_libraries = [ "-lm"; "-ldl" ]
 #      ; cc_profile = []
 #      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
-#      ; system = "macosx"
-#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; system = "linux"
+#      ; asm = [ "as" ]
 #      ; asm_cfi_supported = true
 #      ; with_frame_pointers = false
 #      ; ext_exe = ""
@@ -96,8 +97,8 @@ $ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-apple-darwin21.2.0"
-#      ; target = "x86_64-apple-darwin21.2.0"
+#      ; host = "x86_64-pc-linux-gnu"
+#      ; target = "x86_64-pc-linux-gnu"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
@@ -117,6 +118,4 @@ $ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.main.eobjs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2 -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/advanced -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/seq -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/stdlib-shims -I data/.data.objs/byte -no-alias-deps -opaque -o test/.main.eobjs/byte/dune__exe__Main.cmo -c -impl test/main.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.main.eobjs/byte -I test/.main.eobjs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2 -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/advanced -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/seq -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/stdlib-shims -I data/.data.objs/byte -I data/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.main.eobjs/native/dune__exe__Main.cmx -c -impl test/main.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/main.exe /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml/unix.cmxa -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal/ANSITerminal.cmxa -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal data/data.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/stdlib-shims/stdlib_shims.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/advanced/oUnitAdvanced.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/oUnit.cmxa test/.main.eobjs/native/dune__exe__Main.cmx)
+# Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
