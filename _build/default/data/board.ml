@@ -1,5 +1,6 @@
 exception Unimplemented
-(**A data structure which creates the board**)
+(*A data structure which creates the board*)
+(*open Yojson.Basic.Util*)
 
 type square =
   | Space
@@ -9,7 +10,12 @@ type square =
   | Row of int
   | Col of char
 
-let board =
+(*type board = square array array *)
+
+(*let get_empty_board json = json |> member "board" |> to_list |>
+  List.map to_list*)
+
+let game_board =
   [|
     [|
       Space;
@@ -270,7 +276,11 @@ let board =
 
 (*eventually this will check to make sure board is empty at this spot*)
 (*set board should take in a point instead of r and c*)
-let set_board (r : int) (c : char) (new_val : square) =
+let set_board
+    (r : int)
+    (c : char)
+    (new_val : square)
+    (board : square array array) =
   board.(r).(Char.code c - 64) <- new_val
 
 (*testing with two L pieces*)

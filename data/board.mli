@@ -8,5 +8,5 @@ type square =
 
 exception Unimplemented
 
-val board : square array array
-val set_board : int -> char -> square -> unit
+val game_board : square array array
+val set_board : int -> char -> square -> square array array -> unit

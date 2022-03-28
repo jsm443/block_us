@@ -1,92 +1,84 @@
-# dune exec test/main.exe
+# dune exec bin/main.exe
 # OCAMLPARAM: unset
-# Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
-$ /usr/bin/nproc > /tmp/dune116bcc.output 2> /dev/null
+# Shared cache: disabled
+# Workspace root: /Users/samaberman/cs3110/block_us
 # Auto-detected concurrency: 8
-# disable binary cache
-$ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune1d4390.output
+$ /Users/samaberman/.opam/cs3110/bin/ocamlc.opt -config > /var/folders/_m/j9tltrh54bx3xsmdqdd3f7p40000gn/T/dune_8613f7_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
-#  ; profile = Dyn
+#  ; profile = Dev
 #  ; merlin = true
 #  ; for_host = None
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/home/jacksmerrill/.opam/cs3110-2021fa/lib/toplevel"
-#  ; ocaml_bin = External "/home/jacksmerrill/.opam/cs3110-2021fa/bin"
-#  ; ocaml = Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocaml"
-#  ; ocamlc = External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt"
-#  ; ocamlopt =
-#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt"
-#  ; ocamldep =
-#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamldep.opt"
+#      Some External "/Users/samaberman/.opam/cs3110/lib/toplevel"
+#  ; ocaml_bin = External "/Users/samaberman/.opam/cs3110/bin"
+#  ; ocaml = Ok External "/Users/samaberman/.opam/cs3110/bin/ocaml"
+#  ; ocamlc = External "/Users/samaberman/.opam/cs3110/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/Users/samaberman/.opam/cs3110/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/Users/samaberman/.opam/cs3110/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
+#      Ok External "/Users/samaberman/.opam/cs3110/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "DUNE_OCAML_HARDCODED" :
-#            "/home/jacksmerrill/.opam/cs3110-2021fa/lib"
-#        ; "DUNE_OCAML_STDLIB" :
-#            "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" :
-#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us"
-#        ; "INSIDE_DUNE" :
-#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/default"
+#        { "DUNE_OCAML_HARDCODED" : "/Users/samaberman/.opam/cs3110/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/Users/samaberman/.opam/cs3110/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/samaberman/cs3110/block_us"
+#        ; "INSIDE_DUNE" : "/Users/samaberman/cs3110/block_us/_build/default"
+#        ; "MANPATH" :
+#            "/Users/samaberman/cs3110/block_us/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib"
+#            "/Users/samaberman/cs3110/block_us/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib"
+#            "/Users/samaberman/cs3110/block_us/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib/toplevel"
+#            "/Users/samaberman/cs3110/block_us/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/home/jacksmerrill/.opam/cs3110-2021fa/lib" ]
+#  ; findlib_path = [ External "/Users/samaberman/.opam/cs3110/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
-#      ; standard_library_default =
-#          "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
-#      ; standard_library = "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
+#      ; standard_library_default = "/Users/samaberman/.opam/cs3110/lib/ocaml"
+#      ; standard_library = "/Users/samaberman/.opam/cs3110/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
-#      ; c_compiler = "gcc"
-#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
+#      ; c_compiler = "cc"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
 #      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
-#      ; ocamlopt_cflags =
-#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
 #      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
 #      ; bytecomp_c_compiler =
-#          [ "gcc"
+#          [ "cc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
-#          ; "-fPIC"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
 #          ]
-#      ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
 #      ; native_c_compiler =
-#          [ "gcc"
+#          [ "cc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
-#          ; "-fPIC"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
 #          ]
-#      ; native_c_libraries = [ "-lm"; "-ldl" ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
 #      ; cc_profile = []
 #      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
-#      ; system = "linux"
-#      ; asm = [ "as" ]
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
 #      ; asm_cfi_supported = true
 #      ; with_frame_pointers = false
 #      ; ext_exe = ""
@@ -97,8 +89,8 @@ $ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune1d439
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-pc-linux-gnu"
-#      ; target = "x86_64-pc-linux-gnu"
+#      ; host = "x86_64-apple-darwin21.2.0"
+#      ; target = "x86_64-apple-darwin21.2.0"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
@@ -118,4 +110,6 @@ $ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune1d439
 #      ; windows_unicode = false
 #      }
 #  }
-# Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
+$ (cd _build/default && /Users/samaberman/.opam/cs3110/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.main.eobjs/byte -I /Users/samaberman/.opam/cs3110/lib/ANSITerminal -I /Users/samaberman/.opam/cs3110/lib/biniou -I /Users/samaberman/.opam/cs3110/lib/easy-format -I /Users/samaberman/.opam/cs3110/lib/yojson -I data/.data.objs/byte -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe__Main.cmo -c -impl bin/main.ml)
+$ (cd _build/default && /Users/samaberman/.opam/cs3110/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I /Users/samaberman/.opam/cs3110/lib/ANSITerminal -I /Users/samaberman/.opam/cs3110/lib/biniou -I /Users/samaberman/.opam/cs3110/lib/easy-format -I /Users/samaberman/.opam/cs3110/lib/yojson -I data/.data.objs/byte -I data/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
+$ (cd _build/default && /Users/samaberman/.opam/cs3110/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe /Users/samaberman/.opam/cs3110/lib/easy-format/easy_format.cmxa /Users/samaberman/.opam/cs3110/lib/biniou/biniou.cmxa /Users/samaberman/.opam/cs3110/lib/yojson/yojson.cmxa /Users/samaberman/.opam/cs3110/lib/ocaml/unix.cmxa -I /Users/samaberman/.opam/cs3110/lib/ocaml -I /Users/samaberman/.opam/cs3110/lib/ocaml /Users/samaberman/.opam/cs3110/lib/ANSITerminal/ANSITerminal.cmxa -I /Users/samaberman/.opam/cs3110/lib/ANSITerminal data/data.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)

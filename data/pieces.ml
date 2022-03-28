@@ -4,6 +4,7 @@ type point = {
 }
 
 type piece = {
+  name : int;
   color : Board.square;
   coordinates : point -> point list;
 }
@@ -206,15 +207,20 @@ let p21 (start : point) : point list =
     { r = start.r + 4; c = start.c };
   ]
 
-let place_tile (point : point) (p : piece) : unit =
-  Board.set_board point.r point.c p.color
+(**Places a [p] at point [point]*)
+let place_tile
+    (point : point)
+    (p : piece)
+    (board : Board.square array array) : unit =
+  Board.set_board point.r point.c p.color board
 
-let place (p : piece) (loc : point) : unit =
+let place (p : piece) (loc : point) (board : Board.square array array) =
   let rec cycle (cos : point list) =
     match cos with
     | [] -> ANSITerminal.print_string [ ANSITerminal.white ] ""
     | h :: t ->
-        place_tile h p;
+        place_tile h p board;
         cycle t
   in
-  cycle (p.coordinates loc)
+  cycle (p.coordinates loc);
+  board

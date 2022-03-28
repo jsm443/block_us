@@ -2,8 +2,16 @@
 module Board = Data__Board
 
 
+(** @canonical Data.Command *)
+module Command = Data__Command
+
+
 (** @canonical Data.Pieces *)
 module Pieces = Data__Pieces
+
+
+(** @canonical Data.Players *)
+module Players = Data__Players
 
 
 (** @canonical Data.Print *)
