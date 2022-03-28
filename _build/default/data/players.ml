@@ -71,8 +71,8 @@ let check_corners (tile : piece) (board : Board.square array array) (loc : point
 let check_border (tile : piece) (board : Board.square array array)= 
   raise Unimplemented
 *)
- let valid_placement (current_game:game) (tile: piece) (loc:point) =  
- current_game=current_game&&tile=tile&&loc=loc (*check_piece_in_list && check_corners && check_border && check_overlap *)
+ let valid_placement (*(current_game:game) (tile: piece) (loc:point) *)=  
+ false (*check_piece_in_list && check_corners && check_border && check_overlap *)
 
 
   (**Mutates the board and player 1 and player 2 piece arrays *)
@@ -102,6 +102,6 @@ let place_and_delete_tile (cur_game:game) (tile: piece) (loc:point)=
 
 let move  (current_game:game) (tile: piece) (row:int) (col:char) = 
   let loc = {r = row; c = col} in 
-  if (valid_placement current_game tile loc) 
+  if (valid_placement (*current_game tile loc*)) 
     then (place_and_delete_tile  current_game tile loc)
 else Invalid

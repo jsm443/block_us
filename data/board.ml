@@ -1,4 +1,5 @@
 exception Unimplemented
+
 (*A data structure which creates the board*)
 (*open Yojson.Basic.Util*)
 

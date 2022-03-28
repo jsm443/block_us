@@ -27,33 +27,51 @@ let get_piece cur_game lst=
     let get_col lst : char=
       match lst with
       | [] -> ' '
-      | _ :: _ :: t :: _ -> t.[0]
+      | _ :: _ :: t :: _ -> Char.uppercase_ascii t.[0]
       | _ -> ' '
 
 
   
   let take_turn cur_game command :Players.result=
   (*need to make sure command is valid aka piece exists in piece list*)  
-  Players.move cur_game (get_piece cur_game command) (get_row command) (get_col command)
+   Players.move cur_game (get_piece cur_game command) (get_row command) (get_col command) 
+ 
 
   let run_command cur_game command : Players.result=
     match command |> Command.parse with
-    |Quit -> exit 0
+    |Quit -> print_endline "Goodbye!";exit 0
     |Place phrase -> take_turn cur_game phrase
     |Malformed -> 
       print_string("invalid string");
       Invalid
     
 
-  
+  let print_cur_board (cur_game:Players.game) = 
+    match Print.print_board cur_game.board with
+    |_->print_endline "";print_endline ""
+
+    let print_player (cur_game:Players.game) =
+    if cur_game.turn = 1 then 
+        ANSITerminal.print_string [ ANSITerminal.yellow ] ("player " ^ (string_of_int cur_game.turn))
+    else
+        ANSITerminal.print_string [ ANSITerminal.magenta ] ("player " ^ (string_of_int cur_game.turn))
     (*reads the new line and *)
 let rec play_game (cur_game: Players.game) = 
-  print_string("Make a move.  Enter \"place [piece]\" or \"quit\"");
+  print_cur_board cur_game;
+  print_string "Make a move "; 
+  print_player cur_game;
+  print_endline (". Enter \"place [piece] [row] [column]\" or \"quit\"");
+  print_string ">";
   match read_line () with
   | exception End_of_file -> play_game cur_game
   | command -> match run_command cur_game command with
     |Valid game -> play_game(game)
-    |Invalid -> play_game(cur_game)
+    |Invalid -> print_endline "";
+                print_endline "";
+                print_endline "";
+                ANSITerminal.print_string [ ANSITerminal.red ] 
+                              "Invalid Move. Try again!" ;
+                play_game(cur_game)
   
 let main () =
   ANSITerminal.print_string [ ANSITerminal.blue ]
