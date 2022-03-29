@@ -1,7 +1,7 @@
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:1:Test empty board.
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 E: Test test suite for A2:1:Test empty board has failed.
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 E: not equal in test test suite for A2:1:Test empty board.
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 E: 
-2022-03-29T03:49:36+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:1:Test empty board.
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:1:Test empty board.
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: Test test suite for A2:1:Test empty board has failed.
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: not equal in test test suite for A2:1:Test empty board.
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: 
+2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:1:Test empty board.
