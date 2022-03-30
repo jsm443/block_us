@@ -1,58 +1,57 @@
-# dune build
+# dune exec bin/main.exe
 # OCAMLPARAM: unset
-# Shared cache: disabled
-# Workspace root: /Users/shreeyaindap/Desktop/desktop/code/3110/block_us
+# Workspace root: /Users/sophieehudin/block_us
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/y8/8n7pt27n4jsdsgdwt0m6q8dw0000gn/T/duneee375d.output 2> /dev/null
 # Auto-detected concurrency: 8
-$ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/gt/mh0jpcqx5ms5m46lk3tl7w700000gn/T/dune_e3285e_output
+# disable binary cache
+$ /Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/y8/8n7pt27n4jsdsgdwt0m6q8dw0000gn/T/dune756cb3.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
-#  ; profile = Dev
+#  ; profile = Dyn
 #  ; merlin = true
 #  ; for_host = None
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/toplevel"
-#  ; ocaml_bin = External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin"
-#  ; ocaml = Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocaml"
-#  ; ocamlc = External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt"
+#      Some External "/Users/sophieehudin/.opam/cs3110-2021fa/lib/toplevel"
+#  ; ocaml_bin = External "/Users/sophieehudin/.opam/cs3110-2021fa/bin"
+#  ; ocaml = Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocaml"
+#  ; ocamlc = External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt"
 #  ; ocamlopt =
-#      Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt"
+#      Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlopt.opt"
 #  ; ocamldep =
-#      Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamldep.opt"
+#      Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
+#      Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
 #  ; env =
 #      map
 #        { "DUNE_OCAML_HARDCODED" :
-#            "/Users/shreeyaindap/.opam/cs3110-2021fa/lib"
+#            "/Users/sophieehudin/.opam/cs3110-2021fa/lib"
 #        ; "DUNE_OCAML_STDLIB" :
-#            "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us"
-#        ; "INSIDE_DUNE" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/default"
+#            "/Users/sophieehudin/.opam/cs3110-2021fa/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/sophieehudin/block_us"
+#        ; "INSIDE_DUNE" : "/Users/sophieehudin/block_us/_build/default"
 #        ; "MANPATH" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/bin"
+#            "/Users/sophieehudin/block_us/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/lib"
+#            "/Users/sophieehudin/block_us/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/lib"
+#            "/Users/sophieehudin/block_us/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/shreeyaindap/Desktop/desktop/code/3110/block_us/_build/install/default/lib/toplevel"
+#            "/Users/sophieehudin/block_us/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/Users/shreeyaindap/.opam/cs3110-2021fa/lib" ]
+#  ; findlib_path = [ External "/Users/sophieehudin/.opam/cs3110-2021fa/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
 #      ; standard_library_default =
-#          "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml"
-#      ; standard_library = "/Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml"
+#          "/Users/sophieehudin/.opam/cs3110-2021fa/lib/ocaml"
+#      ; standard_library = "/Users/sophieehudin/.opam/cs3110-2021fa/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
 #      ; c_compiler = "cc"
@@ -78,7 +77,6 @@ $ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #          ; "-D_REENTRANT"
 #          ]
 #      ; native_c_libraries = [ "-lm" ]
-#      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
 #      ; cc_profile = []
 #      ; architecture = "amd64"
 #      ; model = "default"
@@ -96,8 +94,8 @@ $ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-apple-darwin21.2.0"
-#      ; target = "x86_64-apple-darwin21.2.0"
+#      ; host = "x86_64-apple-darwin21.3.0"
+#      ; target = "x86_64-apple-darwin21.3.0"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
@@ -117,32 +115,4 @@ $ /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I data/.data.objs/byte -no-alias-deps -opaque -o data/.data.objs/byte/data.cmo -c -impl data/data.ml-gen)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Command.cmi -c -intf data/command.mli)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Board.cmi -c -intf data/board.mli)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamldep.opt -modules -impl data/author.ml) > _build/default/data/.data.objs/author.ml.d
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Command.cmo -c -impl data/command.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Pieces.cmi -c -intf data/pieces.mli)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Print.cmi -c -intf data/print.mli)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Board.cmo -c -impl data/board.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Author.cmo -c -impl data/author.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Players.cmi -c -intf data/players.mli)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Print.cmo -c -impl data/print.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Pieces.cmo -c -impl data/pieces.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I data/.data.objs/byte -I data/.data.objs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o data/.data.objs/native/data.cmx -c -impl data/data.ml-gen)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I data/.data.objs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/byte/data__Players.cmo -c -impl data/players.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Command.cmx -c -impl data/command.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.main.eobjs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -I data/.data.objs/byte -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe__Main.cmo -c -impl bin/main.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Board.cmx -c -impl data/board.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o data/data.cma data/.data.objs/byte/data.cmo data/.data.objs/byte/data__Board.cmo data/.data.objs/byte/data__Print.cmo data/.data.objs/byte/data__Pieces.cmo data/.data.objs/byte/data__Players.cmo data/.data.objs/byte/data__Command.cmo data/.data.objs/byte/data__Author.cmo)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.main.eobjs/byte -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2 -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/advanced -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/seq -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/stdlib-shims -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -I data/.data.objs/byte -no-alias-deps -opaque -o test/.main.eobjs/byte/dune__exe__Main.cmo -c -impl test/main.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Author.cmx -c -impl data/author.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Print.cmx -c -impl data/print.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Pieces.cmx -c -impl data/pieces.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I data/.data.objs/byte -I data/.data.objs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -intf-suffix .ml -no-alias-deps -opaque -open Data -o data/.data.objs/native/data__Players.cmx -c -impl data/players.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -I data/.data.objs/byte -I data/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.main.eobjs/byte -I test/.main.eobjs/native -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2 -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/advanced -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/seq -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/stdlib-shims -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson -I data/.data.objs/byte -I data/.data.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.main.eobjs/native/dune__exe__Main.cmx -c -impl test/main.ml)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o data/data.cmxa data/.data.objs/native/data.cmx data/.data.objs/native/data__Board.cmx data/.data.objs/native/data__Print.cmx data/.data.objs/native/data__Pieces.cmx data/.data.objs/native/data__Players.cmx data/.data.objs/native/data__Command.cmx data/.data.objs/native/data__Author.cmx)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I data -o data/data.cmxs data/data.cmxa)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format/easy_format.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou/biniou.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson/yojson.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml/unix.cmxa -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal/ANSITerminal.cmxa -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal data/data.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)
-$ (cd _build/default && /Users/shreeyaindap/.opam/cs3110-2021fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/main.exe /Users/shreeyaindap/.opam/cs3110-2021fa/lib/easy-format/easy_format.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/biniou/biniou.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/yojson/yojson.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml/unix.cmxa -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ocaml /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal/ANSITerminal.cmxa -I /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ANSITerminal data/data.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/stdlib-shims/stdlib_shims.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/advanced/oUnitAdvanced.cmxa /Users/shreeyaindap/.opam/cs3110-2021fa/lib/ounit2/oUnit.cmxa test/.main.eobjs/native/dune__exe__Main.cmx)
+# Workspace root: /Users/sophieehudin/block_us
