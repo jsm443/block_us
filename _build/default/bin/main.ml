@@ -34,7 +34,8 @@ let get_col lst : char =
 
 let take_turn cur_game command : Players.result =
   (*need to make sure command is valid aka piece exists in piece list*)
-  if Players.check_piece cur_game (List.hd command) then
+  if List.length command != 4 then Invalid
+  else if Players.check_piece cur_game (List.hd command) then
     Players.move cur_game
       (get_piece cur_game command)
       (get_row command) (get_col command)
@@ -72,7 +73,7 @@ let rec play_game (cur_game : Players.game) =
   print_cur_board cur_game;
   print_string "Make a move ";
   print_player cur_game;
-
+  print_endline "Your available pieces:";
   print_string
     (String.concat ", " (Players.print_player_pieces cur_game));
   print_endline "";

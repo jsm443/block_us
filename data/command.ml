@@ -18,5 +18,5 @@ let parse str =
       Quit
   | "Place" :: lst
   | "place" :: lst ->
-      if lst != [] then Place lst else Malformed
+    if lst != [] then Place lst else Malformed
   | _ -> Malformed
