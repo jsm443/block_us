@@ -23,7 +23,7 @@ let get_piece cur_game lst =
 let get_row (lst : string list) : int =
   match lst with
   | [] -> 0
-  | _ :: s :: _ -> int_of_string s
+  | _ :: s :: _ -> int_of_string s 
   | _ -> 0
 
 let get_col lst : char =
@@ -34,6 +34,8 @@ let get_col lst : char =
 
 let take_turn cur_game command : Players.result =
   (*need to make sure command is valid aka piece exists in piece list*)
+  (*print_string
+    (String.concat ", " (command));*)
   if Players.check_piece cur_game (List.hd command) then
     Players.move cur_game
       (get_piece cur_game command)
