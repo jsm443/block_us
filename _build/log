@@ -1,10 +1,10 @@
-# dune exec bin/main.exe
+# dune build
 # OCAMLPARAM: unset
-# Workspace root: /Users/sophieehudin/block_us
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/y8/8n7pt27n4jsdsgdwt0m6q8dw0000gn/T/duneee375d.output 2> /dev/null
+# Workspace root: /home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us
+$ /usr/bin/nproc > /tmp/dune9d06da.output 2> /dev/null
 # Auto-detected concurrency: 8
 # disable binary cache
-$ /Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/y8/8n7pt27n4jsdsgdwt0m6q8dw0000gn/T/dune756cb3.output
+$ /home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /tmp/dune6c960f.output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -14,76 +14,79 @@ $ /Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/Users/sophieehudin/.opam/cs3110-2021fa/lib/toplevel"
-#  ; ocaml_bin = External "/Users/sophieehudin/.opam/cs3110-2021fa/bin"
-#  ; ocaml = Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocaml"
-#  ; ocamlc = External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt"
+#      Some External "/home/jacksmerrill/.opam/cs3110-2021fa/lib/toplevel"
+#  ; ocaml_bin = External "/home/jacksmerrill/.opam/cs3110-2021fa/bin"
+#  ; ocaml = Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocaml"
+#  ; ocamlc = External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlc.opt"
 #  ; ocamlopt =
-#      Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlopt.opt"
+#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlopt.opt"
 #  ; ocamldep =
-#      Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamldep.opt"
+#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
+#      Ok External "/home/jacksmerrill/.opam/cs3110-2021fa/bin/ocamlmklib.opt"
 #  ; env =
 #      map
 #        { "DUNE_OCAML_HARDCODED" :
-#            "/Users/sophieehudin/.opam/cs3110-2021fa/lib"
+#            "/home/jacksmerrill/.opam/cs3110-2021fa/lib"
 #        ; "DUNE_OCAML_STDLIB" :
-#            "/Users/sophieehudin/.opam/cs3110-2021fa/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/sophieehudin/block_us"
-#        ; "INSIDE_DUNE" : "/Users/sophieehudin/block_us/_build/default"
-#        ; "MANPATH" :
-#            "/Users/sophieehudin/block_us/_build/install/default/bin"
+#            "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" :
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us"
+#        ; "INSIDE_DUNE" :
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/default"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/sophieehudin/block_us/_build/install/default/lib"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/sophieehudin/block_us/_build/install/default/lib"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/sophieehudin/block_us/_build/install/default/lib/toplevel"
+#            "/home/jacksmerrill/C:UsersjacksCornell/cs3110/block_us/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_path = [ External "/Users/sophieehudin/.opam/cs3110-2021fa/lib" ]
+#  ; findlib_path = [ External "/home/jacksmerrill/.opam/cs3110-2021fa/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.12.0"
 #      ; standard_library_default =
-#          "/Users/sophieehudin/.opam/cs3110-2021fa/lib/ocaml"
-#      ; standard_library = "/Users/sophieehudin/.opam/cs3110-2021fa/lib/ocaml"
+#          "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
+#      ; standard_library = "/home/jacksmerrill/.opam/cs3110-2021fa/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
-#      ; c_compiler = "cc"
-#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; c_compiler = "gcc"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
 #      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
-#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-fPIC" ]
 #      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
 #      ; bytecomp_c_compiler =
-#          [ "cc"
+#          [ "gcc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
+#          ; "-fPIC"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
 #          ]
-#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
 #      ; native_c_compiler =
-#          [ "cc"
+#          [ "gcc"
 #          ; "-O2"
 #          ; "-fno-strict-aliasing"
 #          ; "-fwrapv"
+#          ; "-fPIC"
 #          ; "-D_FILE_OFFSET_BITS=64"
 #          ; "-D_REENTRANT"
 #          ]
-#      ; native_c_libraries = [ "-lm" ]
+#      ; native_c_libraries = [ "-lm"; "-ldl" ]
 #      ; cc_profile = []
 #      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
-#      ; system = "macosx"
-#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; system = "linux"
+#      ; asm = [ "as" ]
 #      ; asm_cfi_supported = true
 #      ; with_frame_pointers = false
 #      ; ext_exe = ""
@@ -94,8 +97,8 @@ $ /Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "x86_64-apple-darwin21.3.0"
-#      ; target = "x86_64-apple-darwin21.3.0"
+#      ; host = "x86_64-pc-linux-gnu"
+#      ; target = "x86_64-pc-linux-gnu"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
@@ -115,4 +118,3 @@ $ /Users/sophieehudin/.opam/cs3110-2021fa/bin/ocamlc.opt -config > /var/folders/
 #      ; windows_unicode = false
 #      }
 #  }
-# Workspace root: /Users/sophieehudin/block_us

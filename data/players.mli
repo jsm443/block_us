@@ -24,6 +24,9 @@ val check_overlap : game -> piece -> point -> bool
 (**Checks if a piece is overlapped with an existing piece on the board.
    Returns true if so false if not.*)
 
+val valid_placement : game -> piece -> point -> bool
+(**Checks to ensure that the placement is valid on the board.*)
+
 val check_piece_in_list : game -> piece -> bool
 (**Checks to ensure that the player has the piece in their list*)
 
