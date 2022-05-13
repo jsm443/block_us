@@ -1,7 +1,7 @@
 exception Unimplemented
 
 (*A data structure which creates the board*)
-(*open Yojson.Basic.Util*)
+(* open Yojson.Basic.Util *)
 
 type square =
   | Space
@@ -11,7 +11,13 @@ type square =
   | Row of int
   | Col of char
 
-(*type board = square array array *)
+(* type row = { squares : square list } type board = { rows : row list
+   } *)
+
+(* let board_of_json json = raise (Failure "unimplamented")
+
+   let from_json json = try board_of_json json with Type_error (s, _) ->
+   failwith ("Parsing error:" ^ s) *)
 
 (*let get_empty_board json = json |> member "board" |> to_list |>
   List.map to_list*)
@@ -278,264 +284,31 @@ let empty =
     ];
   ]
 
-let empty_board =
-  [|
-    [|
-      Space;
-      Col 'A';
-      Col 'B';
-      Col 'C';
-      Col 'D';
-      Col 'E';
-      Col 'F';
-      Col 'G';
-      Col 'H';
-      Col 'I';
-      Col 'J';
-      Col 'K';
-      Col 'L';
-      Col 'M';
-      Col 'N';
-    |];
-    [|
-      Row 1;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 2;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 3;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 4;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 5;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 6;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 7;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 8;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 9;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 10;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 11;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 12;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 13;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-    [|
-      Row 14;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-      Empty;
-    |];
-  |]
+(*let empty_board = [| [| Space; Col 'A'; Col 'B'; Col 'C'; Col 'D'; Col
+  'E'; Col 'F'; Col 'G'; Col 'H'; Col 'I'; Col 'J'; Col 'K'; Col 'L';
+  Col 'M'; Col 'N'; |]; [| Row 1; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; |]; [|
+  Row 2; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; |]; [| Row 3; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; |]; [| Row 4; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; |]; [| Row 5; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; |]; [| Row 6; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; |]; [|
+  Row 7; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; |]; [| Row 8; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; |]; [| Row 9; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; |]; [| Row 10; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; |]; [| Row 11; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; |]; [|
+  Row 12; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; |]; [| Row 13; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; |]; [| Row 14; Empty; Empty; Empty; Empty; Empty; Empty; Empty;
+  Empty; Empty; Empty; Empty; Empty; Empty; Empty; |]; |]*)
 
 (*eventually this will check to make sure board is empty at this spot*)
 (*set board should take in a point instead of r and c*)

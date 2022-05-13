@@ -105,7 +105,6 @@ let main () =
       player1 = Players.init_player "p1" Yellow;
       player2 = Players.init_player "p2" Purple;
       turn = 1;
-      used_coords = [];
     }
 
 (* Execute the game engine. *)

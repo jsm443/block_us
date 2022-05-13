@@ -23,6 +23,8 @@ open Board
   place piece11 { r = 5; c = 'C' };; place piece12 { r = 7; c = 'G' };;
   place piece13 { r = 11; c = 'A' };; print_board board;;*)
 
+let empty_board = get_empty_board empty
+
 let board_test (name : string) (exp_out : Board.square array array) :
     test =
   name >:: fun _ ->
@@ -40,14 +42,13 @@ let valid_placement_test
   name >:: fun _ ->
   assert_equal exp_out (Players.valid_placement cur_game tile loc)
 
-let empty_board =
+let empty_board_game =
   Players.
     {
-      board = Board.get_empty_board Board.empty;
+      board = empty_board;
       player1 = Players.init_player "p1" Yellow;
       player2 = Players.init_player "p2" Purple;
-      turn = 1;
-      used_coords = [];
+      turn = 1 (* used_coords = []; *);
     }
 
 let overlap_test2_board =
@@ -55,22 +56,21 @@ let overlap_test2_board =
     Players.move
       Players.
         {
-          board = Board.get_empty_board Board.empty;
+          board = empty_board;
           player1 = Players.init_player "p1" Yellow;
           player2 = Players.init_player "p2" Purple;
           turn = 1;
-          used_coords = [];
         }
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       4 'F'
   with
   | Valid n -> n
-  | Invalid -> empty_board
+  | Invalid -> empty_board_game
 
 let overlap_tests =
   [
     valid_placement_test "(Test 1) empty board placement" true
-      empty_board
+      empty_board_game
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       { r = 4; c = 'F' };
     valid_placement_test "(Test2) valid placement" true

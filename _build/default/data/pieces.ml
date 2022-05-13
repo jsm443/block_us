@@ -207,12 +207,21 @@ let p21 (start : point) : point list =
     { r = start.r + 4; c = start.c };
   ]
 
+let point_on_board point =
+  point.r <= 14 && point.r >= 1
+  && Char.code point.c - 64 <= 14
+  && Char.code point.c - 64 >= 1
+
+exception NotOnBoard
 (**Places a [p] at point [point]*)
+
 let place_tile
     (point : point)
     (p : piece)
     (board : Board.square array array) : unit =
-  Board.set_board point.r point.c p.color board
+  if point_on_board point then
+    Board.set_board point.r point.c p.color board
+  else raise NotOnBoard
 
 let place (p : piece) (loc : point) (board : Board.square array array) =
   let rec cycle (cos : point list) =

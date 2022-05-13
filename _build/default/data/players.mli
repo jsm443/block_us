@@ -3,6 +3,7 @@ open Pieces
 type player = {
   name : string;
   pieces : piece list;
+  used_coords : point list;
 }
 
 type game = {
@@ -10,7 +11,6 @@ type game = {
   player1 : player;
   player2 : player;
   turn : int;
-  used_coords : point list;
 }
 
 type result =

@@ -4,6 +4,7 @@ open Pieces
 type player = {
   name : string;
   pieces : piece list;
+  used_coords : point list;
 }
 
 type game = {
@@ -11,7 +12,6 @@ type game = {
   player1 : player;
   player2 : player;
   turn : int;
-  used_coords : point list;
 }
 
 (* let used_coords : point list = [] *)
@@ -45,7 +45,7 @@ let init_pieces (col : Board.square) : piece list =
 
 (*creates a new player with a name and its color*)
 let init_player (n : string) (color : Board.square) : player =
-  { name = n; pieces = init_pieces color }
+  { name = n; pieces = init_pieces color; used_coords = [] }
 
 let rec get_piece_names (lst : piece list) : string list =
   match lst with
@@ -59,9 +59,6 @@ let print_player_pieces (cur_game : game) : string list =
 type result =
   | Valid of game
   | Invalid
-
-(*let check_piece_in_list (pl : player) (tile: piece) = List.mem tile
-  pl.pieces*)
 
 (*exception Badcheck
 
@@ -86,6 +83,113 @@ type result =
 
 (**Checkts that the pice does not have illegal overlap with another of
    their own pice*)
+
+let updated_game newboard p1 p2 turn =
+  { board = newboard; player1 = p1; player2 = p2; turn }
+
+(** Returns coordinates of full piece after inputting piece and starting
+    point*)
+let get_piece_coordinates (tile : piece) (loc : point) =
+  tile.coordinates loc
+
+(**Updates the current coordinate list with the new coordintes*)
+let updatecoords (tile : piece) (loc : point) (cur_game : game) =
+  if cur_game.turn = 1 then
+    get_piece_coordinates tile loc @ cur_game.player1.used_coords
+  else get_piece_coordinates tile loc @ cur_game.player2.used_coords
+
+(**takes the coordinates from a new piece (obtained from running
+   get_piece coordinates) and an empty list as to_check and returns a
+   list of corners to check for on the board.*)
+
+let rec boarders_to_check
+    (piece_coords : point list)
+    (to_check
+      (*Pass an empty list to this. It is tail recursive*) :
+      point list) : point list =
+  match piece_coords with
+  | h :: t ->
+      boarders_to_check t
+        (let boarders = [] in
+         let p1 = { r = h.r + 1; c = h.c } in
+         let p2 = { r = h.r; c = char_of_int (int_of_char h.c - 1) } in
+         let p3 = { r = h.r - 1; c = h.c } in
+         let p4 = { r = h.r; c = char_of_int (int_of_char h.c + 1) } in
+         let first =
+           if List.mem p1 to_check then boarders else p1 :: boarders
+         in
+         let second =
+           if List.mem p1 to_check then boarders else p2 :: first
+         in
+         let third =
+           if List.mem p1 to_check then boarders else p3 :: second
+         in
+         let fourth =
+           if List.mem p1 to_check then boarders else p4 :: third
+         in
+         fourth @ to_check)
+  | [] -> to_check
+
+let rec corners_to_check
+    (piece_coords : point list)
+    (to_check
+      (*Pass an empty list to this. It is tail recursive*) :
+      point list) : point list =
+  match piece_coords with
+  | h :: t ->
+      corners_to_check t
+        (let corners = [] in
+         let p1 =
+           { r = h.r + 1; c = char_of_int (int_of_char h.c + 1) }
+         in
+         let p2 =
+           { r = h.r + 1; c = char_of_int (int_of_char h.c - 1) }
+         in
+         let p3 =
+           { r = h.r - 1; c = char_of_int (int_of_char h.c - 1) }
+         in
+         let p4 =
+           { r = h.r - 1; c = char_of_int (int_of_char h.c + 1) }
+         in
+         let first =
+           if List.mem p1 to_check then corners else p1 :: corners
+         in
+         let second =
+           if List.mem p1 to_check then corners else p2 :: first
+         in
+         let third =
+           if List.mem p1 to_check then corners else p3 :: second
+         in
+         let fourth =
+           if List.mem p1 to_check then corners else p4 :: third
+         in
+         fourth @ to_check)
+  | [] -> to_check
+
+(**Gets the coordinates of the current player in the games pieces*)
+let get_player_coords game =
+  if game.turn = 1 then game.player1.used_coords
+  else game.player2.used_coords
+
+(**Checks if the corners of the current player against the a coordinate
+   list (to_check)*)
+let rec check_corners (to_check : point list) (game : game) : bool =
+  match to_check with
+  | h :: t ->
+      if List.exists (fun x -> x = h) (get_player_coords game) then true
+      else check_corners t game
+  | [] -> false
+
+(**Checks if any of the tiles from (to_check) match any of the existing
+   game tiles of the color being played. Returns false if so as that
+   would be an illegal move*)
+let rec check_boarders (to_check : point list) (game : game) : bool =
+  match to_check with
+  | h :: t ->
+      if List.exists (fun x -> x = h) (get_player_coords game) then
+        false
+      else check_boarders t game
+  | [] -> true
 
 let rec g_c n (plist : piece list) =
   match plist with
@@ -112,10 +216,6 @@ let check_piece_in_list (cur_game : game) (tile : piece) =
   if cur_game.turn = 1 then List.mem tile cur_game.player1.pieces
   else if cur_game.turn = 2 then List.mem tile cur_game.player2.pieces
   else false
-
-(*let check_square (s1 : Board.square) (s2 : Board.square) : bool =
-  match (s1, s2) with | Empty, _ -> true | x, y -> x = y && (not (x =
-  Yellow && y = Yellow)) && not (x = Purple && y = Purple)*)
 
 let check_square (s1 : Board.square) (s2 : Board.square) : bool =
   match (s1, s2) with
@@ -144,27 +244,45 @@ let check_overlap (cur_game : game) (tile : piece) (loc : point) : bool
   is_overlap cur_game.board
     (Pieces.place tile loc (Board.get_empty_board Board.empty))
 
+let check_on_board (tile : piece) (loc : point) =
+  match Pieces.place tile loc (Board.get_empty_board Board.empty) with
+  | exception _ -> false
+  | _ -> true
+
+let is_first_turn (cur_game : game) =
+  if List.length (get_player_coords cur_game) < 1 then true else false
+
 let valid_placement (current_game : game) (tile : piece) (loc : point) =
-  check_overlap current_game tile loc
+  check_on_board tile loc
+  && (if not (is_first_turn current_game) then
+      check_corners
+        (corners_to_check (get_piece_coordinates tile loc) [])
+        current_game
+     else true)
+  && check_boarders
+       (boarders_to_check (get_piece_coordinates tile loc) [])
+       current_game
+  && check_on_board tile loc
+  && check_overlap current_game tile loc
   && check_piece_in_list current_game tile
-(*&& check_corners && check_border *)
+
+(*&& check_corners && check_border && check_first_placement &&
+  check_on_board*)
 
 (**Mutates the board and player 1 and player 2 piece arrays *)
-let updated_game newboard p1 p2 turn c =
-  {
-    board = newboard;
-    player1 = p1;
-    player2 = p2;
-    turn;
-    used_coords = c;
-  }
 
 let pieces_equal p1 p2 = p1 != p2
 
-let remove_tile_from_player (player : player) (p : piece) : player =
+(*removes tile from player and updates coords*)
+let remove_tile_from_player
+    (player : player)
+    (p : piece)
+    (loc : point)
+    (cur_game : game) : player =
   {
     name = player.name;
     pieces = player.pieces |> List.filter (pieces_equal p);
+    used_coords = updatecoords p loc cur_game;
   }
 
 let nxt_turn cur_game = if cur_game.turn = 1 then 2 else 1
@@ -178,15 +296,15 @@ let place_and_delete_tile (cur_game : game) (tile : piece) (loc : point)
     Valid
       (updated_game
          (Pieces.place tile loc cur_game.board)
-         (remove_tile_from_player cur_game.player1 tile)
-         cur_game.player2 (nxt_turn cur_game) cur_game.used_coords)
+         (remove_tile_from_player cur_game.player1 tile loc cur_game)
+         cur_game.player2 (nxt_turn cur_game))
   else if cur_game.turn = 2 then
     Valid
       (updated_game
          (Pieces.place tile loc cur_game.board)
          cur_game.player1
-         (remove_tile_from_player cur_game.player2 tile)
-         (nxt_turn cur_game) cur_game.used_coords)
+         (remove_tile_from_player cur_game.player2 tile loc cur_game)
+         (nxt_turn cur_game))
   else Invalid
 
 let move (current_game : game) (tile : piece) (row : int) (col : char) =
@@ -199,9 +317,5 @@ let move (current_game : game) (tile : piece) (row : int) (col : char) =
    match coords with | [] -> () | h :: t -> used_coords <- h ::
    !used_coords; uc t in uc (tile.coordinates loc) *)
 
-(* let updatecoords (tile : piece) (loc : point) cur_game = updated_game
-   cur_game.board cur_game.player1 cur_game.player2 cur_game.turn
-   (tile.coordinates loc @ cur_game.used_coords)
-
-   let check_lap cur_game point = if List.mem cur_game.used_coords point
+(* let check_lap cur_game point = if List.mem cur_game.used_coords point
    then true else false *)
