@@ -14,19 +14,13 @@ let next_char (c : char) : char = c |> Char.code |> ( + ) 1 |> Char.chr
 (*let previous_char (c : char) : char = c |> Char.code |> ( - ) 1 |>
   Char.chr *)
 
-(* All pieces are defined by their leftmost box. If there are multiple
-   left most boxes, then the top one is used.*)
-
-(* Single square Piece 1*)
 let p1 (start : point) : point list = [ { r = start.r; c = start.c } ]
 
-(* 2 horizontal squares Piece 2*)
 let p2 (start : point) : point list =
   [
     { r = start.r; c = start.c }; { r = start.r; c = next_char start.c };
   ]
 
-(* 3 horizontal squares Piece 3*)
 let p3 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -34,7 +28,6 @@ let p3 (start : point) : point list =
     { r = start.r; c = next_char (next_char start.c) };
   ]
 
-(* Corner 3 piece Piece 4*)
 let p4 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -42,7 +35,6 @@ let p4 (start : point) : point list =
     { r = 1 + start.r; c = next_char start.c };
   ]
 
-(* Upside down T Piece 7*)
 let p5 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -51,7 +43,6 @@ let p5 (start : point) : point list =
     { r = start.r - 1; c = next_char start.c };
   ]
 
-(* 2 by 2 Block Piece 8*)
 let p6 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -60,7 +51,6 @@ let p6 (start : point) : point list =
     { r = start.r + 1; c = next_char start.c };
   ]
 
-(* Long L Piece 6*)
 let p7 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -69,7 +59,6 @@ let p7 (start : point) : point list =
     { r = start.r + 1; c = next_char (next_char start.c) };
   ]
 
-(* 4 horizontal squares Piece 5*)
 let p8 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -187,7 +176,6 @@ let p19 (start : point) : point list =
     { r = start.r - 1; c = next_char (next_char start.c) };
   ]
 
-(**5 block L Piece 11*)
 let p20 (start : point) : point list =
   [
     { r = start.r; c = start.c };
@@ -197,14 +185,16 @@ let p20 (start : point) : point list =
     { r = start.r; c = next_char (next_char (next_char start.c)) };
   ]
 
-(**5 block line Piece 10*)
 let p21 (start : point) : point list =
   [
     { r = start.r; c = start.c };
-    { r = start.r + 1; c = start.c };
-    { r = start.r + 2; c = start.c };
-    { r = start.r + 3; c = start.c };
-    { r = start.r + 4; c = start.c };
+    { r = start.r; c = next_char start.c };
+    { r = start.r; c = next_char (next_char start.c) };
+    { r = start.r; c = next_char (next_char (next_char start.c)) };
+    {
+      r = start.r;
+      c = next_char (next_char (next_char (next_char start.c)));
+    };
   ]
 
 let point_on_board point =

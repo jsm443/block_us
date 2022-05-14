@@ -1,3 +1,3 @@
 make docs
 50 test cases
-Check corners, board boarders, other piece boarders
+Win condition?

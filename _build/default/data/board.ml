@@ -11,19 +11,20 @@ type square =
   | Row of int
   | Col of char
 
-(* type row = { squares : square list } type board = { rows : row list
-   } *)
-
-(* let board_of_json json = raise (Failure "unimplamented")
-
-   let from_json json = try board_of_json json with Type_error (s, _) ->
-   failwith ("Parsing error:" ^ s) *)
-
 (*let get_empty_board json = json |> member "board" |> to_list |>
   List.map to_list*)
 
 let get_empty_board (board : square list list) =
   Array.map Array.of_list (Array.of_list board)
+
+let empty_5x5 =
+  [
+    [ Space; Empty; Empty; Empty; Empty; Empty ];
+    [ Space; Empty; Empty; Empty; Empty; Empty ];
+    [ Space; Empty; Empty; Empty; Empty; Empty ];
+    [ Space; Empty; Empty; Empty; Empty; Empty ];
+    [ Space; Empty; Empty; Empty; Empty; Empty ];
+  ]
 
 let empty =
   [
@@ -312,15 +313,15 @@ let empty =
 
 (*eventually this will check to make sure board is empty at this spot*)
 (*set board should take in a point instead of r and c*)
+let get_val (r : int) (c : char) (board : square array array) =
+  board.(r).(Char.code c - 64)
+
 let set_board
     (r : int)
     (c : char)
     (new_val : square)
     (board : square array array) =
   board.(r).(Char.code c - 64) <- new_val
-
-let get_val (r : int) (c : char) (board : square array array) =
-  board.(r).(Char.code c - 64)
 
 (*testing with two L pieces*)
 (*set_board 1 'B' Yellow; set_board 1 'C' Yellow; set_board 2 'C'

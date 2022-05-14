@@ -66,6 +66,7 @@ let overlap_test2_board =
   with
   | Valid n -> n
   | Invalid -> empty_board_game
+  | _ -> empty_board_game
 
 let overlap_tests =
   [

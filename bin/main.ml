@@ -45,12 +45,56 @@ let take_turn cur_game command : Players.result =
       (get_row command) (get_col command)
   else Invalid
 
+(**Handles when a player types the "Done" command. Either returns the
+   game in a GameOver state if both players are done or returns the game
+   with it being the other players move.*)
+let handle_done (cur_game : Players.game) =
+  if
+    (cur_game.turn = 1 && cur_game.player2.is_done)
+    || (cur_game.turn = 2 && cur_game.player1.is_done)
+  then Players.GameOver cur_game
+  else if cur_game.turn = 1 then
+    Valid
+      {
+        board = cur_game.board;
+        player1 =
+          {
+            name = cur_game.player1.name;
+            pieces = cur_game.player1.pieces;
+            used_coords = cur_game.player1.used_coords;
+            is_done = true;
+          };
+        player2 = cur_game.player2;
+        turn = 2;
+      }
+  else
+    Valid
+      {
+        board = cur_game.board;
+        player1 = cur_game.player2;
+        player2 =
+          {
+            name = cur_game.player2.name;
+            pieces = cur_game.player2.pieces;
+            used_coords = cur_game.player2.used_coords;
+            is_done = true;
+          };
+        turn = 1;
+      }
+
+let handle_print_piece (p : string) (cur_game : Players.game) =
+  match Players.print_piece p cur_game with
+  | exception _ -> Players.Invalid
+  | _ -> Players.Valid cur_game
+
 let run_command cur_game command : Players.result =
   match command |> Command.parse with
   | Quit ->
       print_endline "Goodbye!";
       exit 0
   | Place phrase -> take_turn cur_game phrase
+  | Done -> handle_done cur_game
+  | See p -> handle_print_piece p cur_game
   | Malformed ->
       print_string "invalid string";
       Invalid
@@ -65,18 +109,27 @@ let print_player (cur_game : Players.game) =
   if cur_game.turn = 1 then (
     ANSITerminal.print_string [ ANSITerminal.yellow ]
       ("player " ^ string_of_int cur_game.turn);
-    print_endline ". Enter \"place [piece] [row] [column]\" or \"quit\"")
+    print_endline
+      ". Enter \"place [piece] [row] [column]\" or \"quit\" or \"done\"")
   else (
     ANSITerminal.print_string
       [ ANSITerminal.magenta ]
       ("player " ^ string_of_int cur_game.turn);
-    print_endline ". Enter \"place [piece] [row] [column]\" or \"quit\"")
+    print_endline
+      ". Enter \"place [piece] [row] [column]\" or \"quit\" or \"done\"")
 
-(*reads the new line and *)
+let is_first_move (cur_game : Players.game) =
+  if List.length cur_game.player1.used_coords < 1 then true
+  else if List.length cur_game.player2.used_coords < 1 then true
+  else false
+
 let rec play_game (cur_game : Players.game) =
   print_cur_board cur_game;
   print_string "Make a move ";
   print_player cur_game;
+  if is_first_move cur_game then
+    print_endline "This is your first move. You must start in a corner."
+  else print_string "";
   print_endline "Your available pieces:";
   print_string
     (String.concat ", " (Players.print_player_pieces cur_game));
@@ -93,7 +146,11 @@ let rec play_game (cur_game : Players.game) =
           print_endline "";
           ANSITerminal.print_string [ ANSITerminal.red ]
             "Invalid Input. Try again!";
-          play_game cur_game)
+          play_game cur_game
+      | GameOver game ->
+          print_endline
+            ("The game is over, " ^ Players.get_score game ^ ".");
+          exit 0)
 
 let main () =
   ANSITerminal.print_string [ ANSITerminal.blue ]
