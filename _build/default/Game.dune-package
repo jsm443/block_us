@@ -1,2 +1,4 @@
-(lang dune 2.9)
+(lang dune 3.0)
 (name Game)
+(sections (lib .))
+(files (lib (META dune-package opam)))

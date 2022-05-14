@@ -34,11 +34,11 @@ let print_square2 (s : Board.square) =
   match s with
   | Yellow ->
       ANSITerminal.print_string [ ANSITerminal.on_yellow ] "  ";
-      ANSITerminal.print_string [ ANSITerminal.white ] ""
+      ANSITerminal.print_string [ ANSITerminal.white ] "|"
   | Purple ->
       ANSITerminal.print_string [ ANSITerminal.on_magenta ] "  ";
-      ANSITerminal.print_string [ ANSITerminal.white ] ""
-  | Space -> ANSITerminal.print_string [ ANSITerminal.white ] "  "
+      ANSITerminal.print_string [ ANSITerminal.white ] "|"
+  | Space -> ANSITerminal.print_string [ ANSITerminal.white ] "   "
   | _ -> ()
 
 let print_5x5row (row : Board.square array) =

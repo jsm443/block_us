@@ -19,11 +19,11 @@ let get_empty_board (board : square list list) =
 
 let empty_5x5 =
   [
-    [ Space; Empty; Empty; Empty; Empty; Empty ];
-    [ Space; Empty; Empty; Empty; Empty; Empty ];
-    [ Space; Empty; Empty; Empty; Empty; Empty ];
-    [ Space; Empty; Empty; Empty; Empty; Empty ];
-    [ Space; Empty; Empty; Empty; Empty; Empty ];
+    [ Empty; Space; Space; Space; Space; Space ];
+    [ Empty; Space; Space; Space; Space; Space ];
+    [ Empty; Space; Space; Space; Space; Space ];
+    [ Empty; Space; Space; Space; Space; Space ];
+    [ Empty; Space; Space; Space; Space; Space ];
   ]
 
 let empty =

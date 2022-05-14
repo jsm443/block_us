@@ -38,7 +38,7 @@ let print_square2 (s : Board.square) =
   | Purple ->
       ANSITerminal.print_string [ ANSITerminal.on_magenta ] "  ";
       ANSITerminal.print_string [ ANSITerminal.white ] "|"
-  | Space -> ANSITerminal.print_string [ ANSITerminal.white ] "  |"
+  | Space -> ANSITerminal.print_string [ ANSITerminal.white ] "   "
   | _ -> ()
 
 let print_5x5row (row : Board.square array) =
