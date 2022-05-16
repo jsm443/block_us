@@ -1,3 +1,7 @@
-2022-05-14T19:20:19+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:2:(Test2) valid placement.
-2022-05-14T19:20:19+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:2:(Test2) valid placement is successful.
-2022-05-14T19:20:19+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:2:(Test2) valid placement.
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:2:(Test2) valid placement.
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: Test test suite for A2:2:(Test2) valid placement has failed.
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: not equal in test test suite for A2:2:(Test2) valid placement.
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: 
+2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:2:(Test2) valid placement.
