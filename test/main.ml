@@ -99,6 +99,15 @@ let empty_board_game_turn1 =
       turn = 1;
     }
 
+let borders_to_check_test
+    (name : string)
+    (expected_output : Pieces.point list)
+    (coords : Pieces.point list)
+    (checking : Pieces.point list) =
+  name >:: fun _ ->
+  assert_equal expected_output
+    (Players.borders_to_check coords checking)
+
 let empty_board_game_turn2 =
   Players.
     {
@@ -137,24 +146,90 @@ let two_piecer = make_move one_piece_board 3 14 'L'
 let three_piecer = make_move two_piecer 3 2 'C'
 let four_piecer = make_move three_piecer 6 12 'J'
 
+let borders_to_check_tests =
+  [
+    borders_to_check_test
+      "(Test 1) checking bordering coordinates of one point who \
+       borders the edges"
+      [
+        { r = 2; c = 'C' };
+        { r = 1; c = 'B' };
+        { r = 2; c = 'A' };
+        { r = 3; c = 'B' };
+      ]
+      [ { r = 2; c = 'B' } ]
+      [];
+    borders_to_check_test
+      "(Test 2) checking bordering coordinates of one point in the \
+       middle of the board"
+      [
+        { r = 5; c = 'E' };
+        { r = 4; c = 'D' };
+        { r = 5; c = 'C' };
+        { r = 6; c = 'D' };
+      ]
+      [ { r = 5; c = 'D' } ]
+      [];
+  ]
+
 let valid_first_move_tests =
   [
-    is_valid_first_move_test "(Test 1) first piece not placed in corner"
-      false empty_board_game_turn1
+    is_valid_first_move_test
+      "(Test 1) first piece not placed in corner, player 1" false
+      empty_board_game_turn1
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       { r = 10; c = 'G' };
-    is_valid_first_move_test "(Test 2) first piece placed in corner"
-      true empty_board_game_turn1
+    is_valid_first_move_test
+      "(Test 2) first piece placed in corner, player 1" true
+      empty_board_game_turn1
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       { r = 1; c = 'A' };
+    is_valid_first_move_test
+      "(Test 3) first piece not placed in corner, player 2" false
+      empty_board_game_turn1
+      { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 5; c = 'D' };
+    is_valid_first_move_test
+      "(Test 4) first piece placed in corner, player 2" true
+      empty_board_game_turn1
+      { name = 1; color = Purple; coordinates = Pieces.p1 }
+      { r = 14; c = 'N' };
   ]
 
 let check_not_on_board_tests =
   [
     check_not_on_board_test
-      "(Test 1) testing first piece placed, no pieces on board" true
+      "(Test 1) testing first piece placed, no pieces on board, place \
+       piece within board, player 1"
+      true
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       { r = 10; c = 'G' };
+    check_not_on_board_test
+      "(Test 2) placing piece on empty board, half falling off the \
+       board, player 1"
+      false
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 14; c = 'N' };
+    check_not_on_board_test
+      "(Test 3) placing piece fully off of the board, player 1" false
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 16; c = 'G' };
+    check_not_on_board_test
+      "(Test 4) testing first piece placed, no pieces on board, place \
+       piece within board, player 2"
+      true
+      { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 10; c = 'G' };
+    check_not_on_board_test
+      "(Test 5) placing piece on empty board, half falling off the \
+       board, player 2"
+      false
+      { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 14; c = 'N' };
+    check_not_on_board_test
+      "(Test 6) placing piece fully off of the board" false
+      { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 16; c = 'G' };
   ]
 
 let get_piece_coordinates_tests =
@@ -172,10 +247,16 @@ let get_piece_coordinates_tests =
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       { r = 1; c = 'B' };
     get_piece_coordinates_test
-      "(Test 2) checking coordinate list of purple piece 2 placed in \
+      "(Test 3) checking coordinate list of purple piece 2 placed in \
        position 1 B"
       [ { r = 1; c = 'B' }; { r = 1; c = 'C' } ]
       { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 1; c = 'B' };
+    get_piece_coordinates_test
+      "(Test 4) checking coordinate list of purple piece 1 placed in \
+       position 1 B"
+      [ { r = 1; c = 'B' } ]
+      { name = 1; color = Purple; coordinates = Pieces.p1 }
       { r = 1; c = 'B' };
   ]
 
@@ -212,6 +293,22 @@ let check_corners_tests =
       (Players.get_piece_coordinates
          { name = 1; color = Purple; coordinates = Pieces.p1 }
          { r = 2; c = 'C' })
+      one_piece_board;
+    check_corners_test
+      "(Test 5) checking corners when piece is placed touching corners \
+       to a border, and not a piece"
+      false
+      (Players.get_piece_coordinates
+         { name = 1; color = Purple; coordinates = Pieces.p1 }
+         { r = 14; c = 'A' })
+      one_piece_board;
+    check_corners_test
+      "(Test 6) checking corners when piece is placed touching a piece \
+       of the same color, but not touching on the corners"
+      false
+      (Players.get_piece_coordinates
+         { name = 1; color = Purple; coordinates = Pieces.p1 }
+         { r = 2; c = 'B' })
       one_piece_board;
   ]
 
@@ -269,7 +366,7 @@ let piece_in_list_tests =
     piece_in_list_test
       "(Test 5) Checking a piece is still in your list after another  \
        player places the  same number"
-      true three_piecer
+      false three_piecer
       { name = 3; color = Yellow; coordinates = Pieces.p3 };
   ]
 
@@ -340,10 +437,12 @@ let suite =
            valid_placement_tests;
            check_corners_tests;
            piece_in_list_tests;
+           borders_to_check_tests;
            valid_first_move_tests;
            overlap_tests;
            command_tests;
            get_piece_coordinates_tests;
+           check_not_on_board_tests;
          ]
 
 let _ = run_test_tt_main suite

@@ -1,34 +1,36 @@
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:3:(Test 3) player 2 places piece on empty board .
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:3:(Test 3) player 2 places piece on empty board  is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:3:(Test 3) player 2 places piece on empty board .
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:7:(Test7) valid placement, placing piece when it is not your turn.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:7:(Test7) valid placement, placing piece when it is not your turn is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:7:(Test7) valid placement, placing piece when it is not your turn.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:16:(Test 5) Checking a piece is still in your list after another  player places the  same number.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 E: Test test suite for A2:16:(Test 5) Checking a piece is still in your list after another  player places the  same number has failed.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 E: not equal in test test suite for A2:16:(Test 5) Checking a piece is still in your list after another  player places the  same number.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 E: 
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:16:(Test 5) Checking a piece is still in your list after another  player places the  same number.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:18:(Test 2) first piece placed in corner.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:18:(Test 2) first piece placed in corner is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:18:(Test 2) first piece placed in corner.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:22:(Test 4) check overlap of placing piece overlapping your own piece.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:22:(Test 4) check overlap of placing piece overlapping your own piece is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:22:(Test 4) check overlap of placing piece overlapping your own piece.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:26:Test invalid place input.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:26:Test invalid place input is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:26:Test invalid place input.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:29:Test Done uppercase.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:29:Test Done uppercase is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:29:Test Done uppercase.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:31:Test See uppercase .
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:31:Test See uppercase  is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:31:Test See uppercase .
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:35:(Test 2) checking coordinate list of yellow piece 2 placed in position 1 B.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:35:(Test 2) checking coordinate list of yellow piece 2 placed in position 1 B is successful.
-2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:35:(Test 2) checking coordinate list of yellow piece 2 placed in position 1 B.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:3:(Test 3) player 2 places piece on empty board .
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:3:(Test 3) player 2 places piece on empty board  is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:3:(Test 3) player 2 places piece on empty board .
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:12:(Test 5) checking corners when piece is placed touching corners to a border, and not a piece.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:12:(Test 5) checking corners when piece is placed touching corners to a border, and not a piece is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:12:(Test 5) checking corners when piece is placed touching corners to a border, and not a piece.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:18:(Test 5) Checking a piece is still in your list after another  player places the  same number.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:18:(Test 5) Checking a piece is still in your list after another  player places the  same number is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:18:(Test 5) Checking a piece is still in your list after another  player places the  same number.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:20:(Test 2) checking bordering coordinates of one point in the middle of the board.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:20:(Test 2) checking bordering coordinates of one point in the middle of the board is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:20:(Test 2) checking bordering coordinates of one point in the middle of the board.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:25:(Test 1) check overlap of first player placing piece on empty board .
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:25:(Test 1) check overlap of first player placing piece on empty board  is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:25:(Test 1) check overlap of first player placing piece on empty board .
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:27:(Test 3) check overlap of placing non-overlapped piece on a non-empty board.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:27:(Test 3) check overlap of placing non-overlapped piece on a non-empty board is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:27:(Test 3) check overlap of placing non-overlapped piece on a non-empty board.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:30:Test Place uppercase letter.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:30:Test Place uppercase letter is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:30:Test Place uppercase letter.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:36:Test done lowercase.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:36:Test done lowercase is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:36:Test done lowercase.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:38:Test see lower case.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:38:Test see lower case is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:38:Test see lower case.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Start test test suite for A2:48:(Test 5) placing piece on empty board, half falling off the board, player 2.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: Test test suite for A2:48:(Test 5) placing piece on empty board, half falling off the board, player 2 is successful.
+2022-05-16T22:06:01+00:00 DESKTOP-8S2MMPG#04 I: End test test suite for A2:48:(Test 5) placing piece on empty board, half falling off the board, player 2.
