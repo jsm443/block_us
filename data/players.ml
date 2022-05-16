@@ -385,3 +385,5 @@ let get_score (game : game) : string =
   in
   win_statement ^ "Player 1's score is " ^ string_of_int p1_score
   ^ ". Player 2's score is " ^ string_of_int p2_score
+
+(*checking git*)
