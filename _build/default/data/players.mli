@@ -27,20 +27,37 @@ type result =
           a valid move and game should continue or whether the game ends
           or whether something occured that was invalid *)
 
+val init_pieces : Board.square -> piece list
+
 val init_player : string -> Board.square -> player
 (**[init_player name color] initializes a new [player] with [name], all
    of the possible pieces with their [color], no used coordinates and
    not being done with their turn*)
+
+val check_corners : point list -> game -> bool
+(** [check_corners] returns [true] if the current piece attempting to be
+    placed is touching the corner of a previously placed piece of the
+    same player, else returns [false] *)
 
 val print_player_pieces : game -> string list
 (** [print_player_pieces game] lists all of the piece names of the
     available pieces left of the player whose turn it is according to
     the [game]*)
 
-val check_overlapping_pieces : game -> piece -> point -> bool
-(** [check_overlapping_pieces game piece loc] returns [true] if the
-    [piece] at location [loc] is overlapped with an existing piece on
-    the board. Otherise returns [false]. *)
+val check_piece : game -> string -> bool
+(** [check_piece game piecename] returns [true] if the [piecename] is
+    the piece list of the player whos current turn it is in, and
+    therefore is still available to be used. Otherwise returns [false]. *)
+
+val get_coordinates : int -> Board.square -> point -> point list
+(** [get_coordinates piecename color] returns a function that given a
+    starting position, outputs the list of coordinates of a given piece
+    if it is a valid piece in the current player's piece list. *)
+
+val check_not_overlapping_pieces : game -> piece -> point -> bool
+(** [check_not_overlapping_pieces game piece loc] returns [true] if the
+    [piece] at location [loc] is not overlapped with an existing piece
+    on the board. Otherise returns [false]. *)
 
 val valid_placement : game -> piece -> point -> bool
 (** [check_placement game piece loc] returns [true] if the [piece] at
@@ -58,19 +75,17 @@ val move : game -> piece -> int -> char -> result
     placement according to the game's rules. Otherwise will return
     [Invalid] or a [GameOver game] if this is the last move. *)
 
-val get_coordinates : int -> Board.square -> point -> point list
-(**[get_coordinates piecename square] returns function that takes in a
-   starting point of a piece and returns the full list of coordinates
-   that piece takes up on the board -------NOT SURE IF THIS IS
-   CORRECT--------*)
-
-val check_piece : game -> string -> bool
-(**NOT SURE IF WE EVER ACTUALLY USE THIS FUNCTION--- WE SHOULD COMMENT
-   OUT IF NOT*)
-
 val get_score : game -> string
 (**[get_score game] Returns a statement containing the score of each
    player.*)
 
 val print_piece : string -> game -> unit array array
 (**[print_piece piece game] Prints a single piece on a 5x5 grid*)
+
+val is_valid_first_move : game -> piece -> point -> bool
+(** [is_valid_first_move game piece pont] Returns [true] if the first
+    piece is valid (placed in a corner) or [false] if not valid*)
+
+val get_piece_coordinates : piece -> point -> point list
+(** [get_piece_coordinates piece pont] Returns coordinates of the full
+    [piece] with the starting position as [point]*)

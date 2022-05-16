@@ -1,3 +1,33 @@
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:0:Print Board.
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:0:Print Board is successful.
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:0:Print Board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:0:Print Board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:0:Print Board is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:0:Print Board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:2:(Test 2) player 1 places piece on empty board when its their turn, but not in corner.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:2:(Test 2) player 1 places piece on empty board when its their turn, but not in corner is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:2:(Test 2) player 1 places piece on empty board when its their turn, but not in corner.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:3:(Test 3) player 2 places piece on empty board .
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:3:(Test 3) player 2 places piece on empty board  is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:3:(Test 3) player 2 places piece on empty board .
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:5:(Test5) valid placement, player 1 places piece on a non-empty board, touching corners.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:5:(Test5) valid placement, player 1 places piece on a non-empty board, touching corners is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:5:(Test5) valid placement, player 1 places piece on a non-empty board, touching corners.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:7:(Test7) valid placement, placing piece when it is not your turn.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:7:(Test7) valid placement, placing piece when it is not your turn is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:7:(Test7) valid placement, placing piece when it is not your turn.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:9:(Test 2) checking corners when piece is placed on non-empty board and not touching corners to any piece.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:9:(Test 2) checking corners when piece is placed on non-empty board and not touching corners to any piece is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:9:(Test 2) checking corners when piece is placed on non-empty board and not touching corners to any piece.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:12:(Test 1) check empty list returns true.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:12:(Test 1) check empty list returns true is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:12:(Test 1) check empty list returns true.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:14:(Test 1) first piece not placed in corner.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:14:(Test 1) first piece not placed in corner is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:14:(Test 1) first piece not placed in corner.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:15:(Test 2) first piece placed in corner.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:15:(Test 2) first piece placed in corner is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:15:(Test 2) first piece placed in corner.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:18:(Test 3) check overlap of placing non-overlapped piece on a non-empty board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:18:(Test 3) check overlap of placing non-overlapped piece on a non-empty board is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:18:(Test 3) check overlap of placing non-overlapped piece on a non-empty board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Start test test suite for A2:20:(Test 5) check overlap of placing piece overlapping other players piece.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: Test test suite for A2:20:(Test 5) check overlap of placing piece overlapping other players piece is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#01 I: End test test suite for A2:20:(Test 5) check overlap of placing piece overlapping other players piece.

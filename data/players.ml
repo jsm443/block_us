@@ -246,20 +246,29 @@ let array_all_true (a : bool array array) : bool =
 let is_overlap cur_board new_board =
   Array.map2 cycle_row cur_board new_board |> array_all_true
 
-let check_overlapping_pieces
+let check_not_overlapping_pieces
     (current_game : game)
     (tile : piece)
     (loc : point) : bool =
   is_overlap current_game.board
-    (Pieces.place tile loc (Board.get_empty_board Board.empty))
+    (Pieces.place tile loc (Board.get_empty_board 15))
 
 let check_on_board (tile : piece) (loc : point) =
-  match Pieces.place tile loc (Board.get_empty_board Board.empty) with
+  match Pieces.place tile loc (Board.get_empty_board 15) with
   | exception _ -> false
   | _ -> true
 
 let is_first_turn (cur_game : game) =
-  if List.length (get_player_coords cur_game) < 1 then true else false
+  if
+    List.length cur_game.player1.used_coords >= 1
+    && cur_game.player2.is_done
+  then false
+  else if
+    List.length cur_game.player2.used_coords >= 1
+    && cur_game.player1.is_done
+  then false
+  else if List.length (get_player_coords cur_game) < 1 then true
+  else false
 
 let is_a_corner (point : point) : bool =
   (point.c = 'A' && point.r = 1)
@@ -286,7 +295,7 @@ let valid_placement (current_game : game) (tile : piece) (loc : point) =
        (borders_to_check (get_piece_coordinates tile loc) [])
        current_game
   && check_on_board tile loc
-  && check_overlapping_pieces current_game tile loc
+  && check_not_overlapping_pieces current_game tile loc
   && check_piece_in_list current_game tile
 
 (*&& check_corners && check_border && check_first_placement &&
@@ -352,7 +361,7 @@ exception NotInPieceList
 
 let print_p (p : piece) =
   let rec pp loc =
-    let x = Board.get_empty_board Board.empty_5x5 in
+    let x = Board.get_empty_mini_board Board.empty_5x5 in
     match place p loc x with
     | exception NotOnBoard -> pp { r = loc.r + 1; c = loc.c }
     | _ -> Print.print_5x5 x
