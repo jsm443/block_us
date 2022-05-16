@@ -12,10 +12,9 @@ type square =
 exception Unimplemented
 (** Raised for functions that have not been implemented yet. *)
 
-val empty : square list list
-(**[empty] is an array representing the empty state of the board in
-   which all squares are spaces, empty, or a row number or column
-   character*)
+val get_empty_board : int -> square array array
+(**[get_empty_board size] generates a square array array with an empty
+   board of size n*)
 
 val empty_5x5 : square list list
 (**[empty] is an array representing the empty state of the mini board to
@@ -23,9 +22,9 @@ val empty_5x5 : square list list
 
 (* val empty_board : square array array *)
 
-val get_empty_board : square list list -> square array array
-(**[get_empty_board b] converts the board from a square list list to a
-   square array array*)
+val get_empty_mini_board : square list list -> square array array
+(**[get_empty_mini_board b] converts the board from a square list list
+   to a square array array*)
 
 val set_board : int -> char -> square -> square array array -> unit
 (** [set_board row col square board] updates the square on the board of

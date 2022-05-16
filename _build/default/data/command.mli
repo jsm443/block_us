@@ -12,6 +12,7 @@ type command =
   | Place of object_phrase
   | Quit
   | Done
+  (* | Score *)
   | See of string
   | Malformed
 

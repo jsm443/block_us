@@ -1,29 +1,10 @@
 open OUnit2
 open Data
-
-(*open Print*)
 open Board
-(*open Pieces*)
-(*let piece1 = {color = Yellow; coordinates = p1};; let piece2 = {color
-  = Yellow; coordinates = p2};; let piece3 = {color = Purple;
-  coordinates = p3};; let piece4 = {color = Purple; coordinates = p4};;
-  let piece5 = {color = Yellow; coordinates = p5};; let piece6 = {color
-  = Purple; coordinates = p6};; let piece7 = {color = Yellow;
-  coordinates = p7};; let piece8 = {color = Purple; coordinates = p8};;
-  let piece9 = {color = Yellow; coordinates = p9};; let piece10 = {color
-  = Yellow; coordinates = p10};; let piece11 = {color = Purple;
-  coordinates = p11};; let piece12 = {color = Yellow; coordinates =
-  p12};; let piece13 = {color = Yellow; coordinates = p13};;
+open Pieces
+open Players
 
-  place piece1 { r = 5; c = 'F' };; place piece2 { r = 7; c = 'A' };;
-  place piece3 { r = 10; c = 'I' };; place piece4 { r = 12; c = 'F' };;
-  place piece5 { r = 3; c = 'K' };; place piece6 {r = 3; c = 'I' };;
-  place piece7 { r = 13; c = 'L' };; place piece8 { r = 10; c = 'A' };;
-  place piece9 { r = 1; c = 'B' };; place piece10 { r = 7; c = 'K' };;
-  place piece11 { r = 5; c = 'C' };; place piece12 { r = 7; c = 'G' };;
-  place piece13 { r = 11; c = 'A' };; print_board board;;*)
-
-let empty_board = get_empty_board empty
+let empty_board = get_empty_board 15
 
 let board_test (name : string) (exp_out : Board.square array array) :
     test =
@@ -35,52 +16,306 @@ let board_tests = [ board_test "Print Board" empty_board ]
 
 let valid_placement_test
     (name : string)
-    (exp_out : bool)
+    (expected_output : bool)
     (cur_game : Players.game)
     (tile : Pieces.piece)
     (loc : Pieces.point) =
   name >:: fun _ ->
-  assert_equal exp_out (Players.valid_placement cur_game tile loc)
+  assert_equal expected_output
+    (Players.valid_placement cur_game tile loc)
 
-let empty_board_game =
+let overlap_test
+    (name : string)
+    (expected_output : bool)
+    (cur_game : Players.game)
+    (tile : Pieces.piece)
+    (loc : Pieces.point) =
+  name >:: fun _ ->
+  assert_equal expected_output
+    (Players.check_not_overlapping_pieces cur_game tile loc)
+
+let piece_in_list_test
+    (name : string)
+    (expected_output : bool)
+    (cur_game : Players.game)
+    (tile : Pieces.piece) =
+  name >:: fun _ ->
+  assert_equal expected_output
+    (Players.check_piece_in_list cur_game tile)
+
+let check_corners_test
+    (name : string)
+    (expected_output : bool)
+    (coords : point list)
+    (cur_game : Players.game) =
+  name >:: fun _ ->
+  assert_equal expected_output (Players.check_corners coords cur_game)
+
+let is_valid_first_move_test
+    (name : string)
+    (expected_output : bool)
+    (cur_game : Players.game)
+    (tile : Pieces.piece)
+    (loc : Pieces.point) =
+  name >:: fun _ ->
+  assert_equal expected_output
+    (Players.is_valid_first_move cur_game tile loc)
+
+let is_valid_command
+    (name : string)
+    (exp_out : string)
+    (command : string) =
+  name >:: fun _ ->
+  assert_equal exp_out
+    (match Command.parse command with
+    | Place _ -> "Place"
+    | Quit -> "Quit"
+    | Done -> "Done"
+    | See _ -> "See"
+    | Malformed -> "Malformed")
+
+let get_piece_coordinates_test
+    (name : string)
+    (expected_output : Pieces.point list)
+    (tile : Pieces.piece)
+    (loc : Pieces.point) =
+  name >:: fun _ ->
+  assert_equal expected_output (Players.get_piece_coordinates tile loc)
+
+let empty_board_game_turn1 =
   Players.
     {
       board = empty_board;
       player1 = Players.init_player "p1" Yellow;
       player2 = Players.init_player "p2" Purple;
-      turn = 1 (* used_coords = []; *);
+      turn = 1;
     }
 
-let overlap_test2_board =
-  match
-    Players.move
-      Players.
-        {
-          board = empty_board;
-          player1 = Players.init_player "p1" Yellow;
-          player2 = Players.init_player "p2" Purple;
-          turn = 1;
-        }
+let empty_board_game_turn2 =
+  Players.
+    {
+      board = empty_board;
+      player1 = Players.init_player "p1" Yellow;
+      player2 = Players.init_player "p2" Purple;
+      turn = 2;
+    }
+
+let get_piece (piece : int) (color : Board.square) =
+  try List.nth (init_pieces color) (piece - 1)
+  with _ -> raise (Failure "something is wrong with nth")
+
+(**Used to place pieces on test boards. Pass it a [game] which is the
+   current game, where a move is peing added,[piece] the number value of
+   the piece to add, the [row] abd [col] *)
+let make_move (game : game) (piece : int) (row : int) (col : char) :
+    game =
+  let color = if game.turn = 1 then Board.Yellow else Board.Purple in
+  match move game (get_piece piece color) row col with
+  | Valid g -> g
+  | Invalid -> raise (Failure "invalid\n   move")
+  | _ -> raise (Failure "end game")
+
+let one_piece_board =
+  make_move
+    {
+      board = empty_board;
+      player1 = Players.init_player "p1" Yellow;
+      player2 = Players.init_player "p2" Purple;
+      turn = 1;
+    }
+    2 1 'A'
+
+let two_piecer = make_move one_piece_board 3 14 'L'
+let three_piecer = make_move two_piecer 3 2 'C'
+let four_piecer = make_move three_piecer 6 12 'J'
+
+let valid_first_move_tests =
+  [
+    is_valid_first_move_test "(Test 1) first piece not placed in corner"
+      false empty_board_game_turn1
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
-      4 'F'
-  with
-  | Valid n -> n
-  | Invalid -> empty_board_game
-  | _ -> empty_board_game
+      { r = 10; c = 'G' };
+    is_valid_first_move_test "(Test 2) first piece placed in corner"
+      true empty_board_game_turn1
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 1; c = 'A' };
+  ]
+
+let get_piece_coordinates_tests =
+  [
+    get_piece_coordinates_test
+      "(Test 1) checking coordinate list of piece 1 placed in position \
+       1 A"
+      [ { r = 1; c = 'A' } ]
+      { name = 1; color = Yellow; coordinates = Pieces.p1 }
+      { r = 1; c = 'A' };
+    get_piece_coordinates_test
+      "(Test 2) checking coordinate list of yellow piece 2 placed in \
+       position 1 B"
+      [ { r = 1; c = 'B' }; { r = 1; c = 'C' } ]
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 1; c = 'B' };
+    get_piece_coordinates_test
+      "(Test 2) checking coordinate list of purple piece 2 placed in \
+       position 1 B"
+      [ { r = 1; c = 'B' }; { r = 1; c = 'C' } ]
+      { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 1; c = 'B' };
+  ]
+
+let check_corners_tests =
+  [
+    check_corners_test
+      "(Test 1) checking corners when piece is placed on empty board"
+      false
+      (Players.get_piece_coordinates
+         { name = 2; color = Yellow; coordinates = Pieces.p2 }
+         { r = 10; c = 'G' })
+      empty_board_game_turn1;
+    check_corners_test
+      "(Test 2) checking corners when piece is placed on non-empty \
+       board and not touching corners to any piece"
+      false
+      (Players.get_piece_coordinates
+         { name = 2; color = Yellow; coordinates = Pieces.p2 }
+         { r = 10; c = 'G' })
+      one_piece_board;
+    check_corners_test
+      "(Test 3) checking corners when piece is placed on non-empty \
+       board and corners touch its own colored piece"
+      false
+      (Players.get_piece_coordinates
+         { name = 1; color = Yellow; coordinates = Pieces.p1 }
+         { r = 2; c = 'C' })
+      one_piece_board;
+    check_corners_test
+      "(Test 4) checking corners when piece is placed on non-empty \
+       board and its corners touch a different players piece but not \
+       your own"
+      false
+      (Players.get_piece_coordinates
+         { name = 1; color = Purple; coordinates = Pieces.p1 }
+         { r = 2; c = 'C' })
+      one_piece_board;
+  ]
 
 let overlap_tests =
   [
-    valid_placement_test "(Test 1) empty board placement" true
-      empty_board_game
+    overlap_test
+      "(Test 1) check overlap of first player placing piece on empty \
+       board "
+      true empty_board_game_turn1
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 10; c = 'G' };
+    overlap_test
+      "(Test 2) check overlap of second player placing piece on empty \
+       board "
+      true empty_board_game_turn1
+      { name = 2; color = Purple; coordinates = Pieces.p2 }
+      { r = 10; c = 'G' };
+    overlap_test
+      "(Test 3) check overlap of placing non-overlapped piece on a \
+       non-empty board"
+      true one_piece_board
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 10; c = 'G' };
+    overlap_test
+      "(Test 4) check overlap of placing piece overlapping your own \
+       piece"
+      true one_piece_board
+      { name = 7; color = Yellow; coordinates = Pieces.p7 }
+      { r = 2; c = 'B' };
+    overlap_test
+      "(Test 5) check overlap of placing piece overlapping other \
+       players piece"
+      true one_piece_board
+      { name = 7; color = Purple; coordinates = Pieces.p7 }
+      { r = 2; c = 'B' };
+  ]
+
+let piece_in_list_tests =
+  [
+    piece_in_list_test "(Test 1) check empty list returns true" true
+      empty_board_game_turn1
+      { name = 2; color = Yellow; coordinates = Pieces.p2 };
+    piece_in_list_test "(Test 2) check one piece returns false" false
+      one_piece_board
+      { name = 2; color = Yellow; coordinates = Pieces.p2 };
+    piece_in_list_test
+      "(Test 3) checking if piece is in your list after you placed \
+       the  piece"
+      false four_piecer
+      { name = 6; color = Purple; coordinates = Pieces.p6 };
+    piece_in_list_test
+      "(Test 4) checking if piece is in your list after the other\n\
+      \       player placed the piece" false four_piecer
+      { name = 6; color = Yellow; coordinates = Pieces.p6 };
+    piece_in_list_test
+      "(Test 5) Checking a piece is still in your list after another  \
+       player places the  same number"
+      true three_piecer
+      { name = 3; color = Yellow; coordinates = Pieces.p3 };
+  ]
+
+let valid_placement_tests =
+  [
+    valid_placement_test
+      "(Test 1) player 1 places piece on empty board when its not \
+       their turn"
+      false empty_board_game_turn2
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 10; c = 'G' };
+    valid_placement_test
+      "(Test 2) player 1 places piece on empty board when its their \
+       turn, but not in corner"
+      false empty_board_game_turn1
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 10; c = 'G' };
+    valid_placement_test
+      "(Test 3) player 2 places piece on empty board " false
+      empty_board_game_turn1
+      { name = 3; color = Purple; coordinates = Pieces.p3 }
       { r = 4; c = 'F' };
-    valid_placement_test "(Test2) valid placement" true
-      overlap_test2_board
+    valid_placement_test
+      "(Test4) valid placement, player 1 places piece on a non-empty \
+       board, not touching corners"
+      false one_piece_board
+      { name = 3; color = Yellow; coordinates = Pieces.p3 }
+      { r = 11; c = 'J' };
+    valid_placement_test
+      "(Test5) valid placement, player 1 places piece on a non-empty \
+       board, touching corners"
+      false one_piece_board
+      { name = 1; color = Yellow; coordinates = Pieces.p1 }
+      { r = 2; c = 'C' };
+    valid_placement_test
+      "(Test6) valid placement, player 1 tries to place that is not in \
+       their piece list/already on the board"
+      false one_piece_board
+      { name = 2; color = Yellow; coordinates = Pieces.p2 }
+      { r = 1; c = 'A' };
+    valid_placement_test
+      "(Test7) valid placement, placing piece when it is not your turn"
+      false one_piece_board
       { name = 3; color = Purple; coordinates = Pieces.p3 }
       { r = 9; c = 'C' };
   ]
 
+let command_tests =
+  [ is_valid_command "Test Place" "place 3 3 'c'" "Place" ]
+
 let suite =
-  "test suite for A2" >::: List.flatten [ board_tests; overlap_tests ]
+  "test suite for A2"
+  >::: List.flatten
+         [
+           board_tests;
+           valid_placement_tests;
+           check_corners_tests;
+           piece_in_list_tests;
+           valid_first_move_tests;
+           overlap_tests;
+           command_tests;
+           get_piece_coordinates_test;
+         ]
 
 let _ = run_test_tt_main suite

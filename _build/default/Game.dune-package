@@ -1,4 +1,86 @@
 (lang dune 3.0)
 (name Game)
-(sections (lib .))
-(files (lib (META dune-package opam)))
+(sections (lib .) (libexec .))
+(files
+ (lib
+  (META
+   author.ml
+   author.mli
+   board.ml
+   board.mli
+   command.ml
+   command.mli
+   data.a
+   data.cma
+   data.cmi
+   data.cmt
+   data.cmx
+   data.cmxa
+   data.ml
+   data__Author.cmi
+   data__Author.cmt
+   data__Author.cmti
+   data__Author.cmx
+   data__Board.cmi
+   data__Board.cmt
+   data__Board.cmti
+   data__Board.cmx
+   data__Command.cmi
+   data__Command.cmt
+   data__Command.cmti
+   data__Command.cmx
+   data__Pieces.cmi
+   data__Pieces.cmt
+   data__Pieces.cmti
+   data__Pieces.cmx
+   data__Players.cmi
+   data__Players.cmt
+   data__Players.cmti
+   data__Players.cmx
+   data__Print.cmi
+   data__Print.cmt
+   data__Print.cmti
+   data__Print.cmx
+   dune-package
+   opam
+   pieces.ml
+   pieces.mli
+   players.ml
+   players.mli
+   print.ml
+   print.mli))
+ (libexec (data.cmxs)))
+(library
+ (name Game)
+ (kind normal)
+ (archives (byte data.cma) (native data.cmxa))
+ (plugins (byte data.cma) (native data.cmxs))
+ (native_archives data.a)
+ (requires yojson ANSITerminal)
+ (main_module_name Data)
+ (modes byte native)
+ (modules
+  (wrapped
+   (main_module_name Data)
+   (modules
+    ((name Author) (obj_name data__Author) (visibility public) (impl) (intf))
+    ((name Board) (obj_name data__Board) (visibility public) (impl) (intf))
+    ((name Command)
+     (obj_name data__Command)
+     (visibility public)
+     (impl)
+     (intf))
+    ((name Pieces) (obj_name data__Pieces) (visibility public) (impl) (intf))
+    ((name Players)
+     (obj_name data__Players)
+     (visibility public)
+     (impl)
+     (intf))
+    ((name Print) (obj_name data__Print) (visibility public) (impl) (intf)))
+   (alias_module
+    (name Data)
+    (obj_name data)
+    (visibility public)
+    (kind alias)
+    (impl))
+   (wrapped true))))

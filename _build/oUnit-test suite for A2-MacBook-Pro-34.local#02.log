@@ -1,7 +1,30 @@
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:1:Test empty board.
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: Test test suite for A2:1:Test empty board has failed.
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: not equal in test test suite for A2:1:Test empty board.
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 E: 
-2022-03-29T03:58:10+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:1:Test empty board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:1:(Test 1) player 1 places piece on empty board when its not their turn.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:1:(Test 1) player 1 places piece on empty board when its not their turn is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:1:(Test 1) player 1 places piece on empty board when its not their turn.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:6:(Test6) valid placement, player 1 tries to place that is not in their piece list/already on the board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:6:(Test6) valid placement, player 1 tries to place that is not in their piece list/already on the board is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:6:(Test6) valid placement, player 1 tries to place that is not in their piece list/already on the board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:8:(Test 1) checking corners when piece is placed on empty board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:8:(Test 1) checking corners when piece is placed on empty board is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:8:(Test 1) checking corners when piece is placed on empty board.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:10:(Test 3) checking corners when piece is placed on non-empty board and corners touch its own colored piece.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:10:(Test 3) checking corners when piece is placed on non-empty board and corners touch its own colored piece is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:10:(Test 3) checking corners when piece is placed on non-empty board and corners touch its own colored piece.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:11:(Test 4) checking corners when piece is placed on non-empty board and its corners touch a different players piece but not your own.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:13:(Test 2) check one piece returns false.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:13:(Test 2) check one piece returns false is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:13:(Test 2) check one piece returns false.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:16:(Test 1) check overlap of first player placing piece on empty board .
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:16:(Test 1) check overlap of first player placing piece on empty board  is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:16:(Test 1) check overlap of first player placing piece on empty board .
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:17:(Test 2) check overlap of second player placing piece on empty board .
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:17:(Test 2) check overlap of second player placing piece on empty board  is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:17:(Test 2) check overlap of second player placing piece on empty board .
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Start test test suite for A2:19:(Test 4) check overlap of placing piece overlapping your own piece.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: Test test suite for A2:19:(Test 4) check overlap of placing piece overlapping your own piece is successful.
+2022-05-16T20:44:09+00:00 MacBook-Pro-34.local#02 I: End test test suite for A2:19:(Test 4) check overlap of placing piece overlapping your own piece.

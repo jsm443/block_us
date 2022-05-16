@@ -5,6 +5,7 @@ type command =
   | Quit
   | Done
   | See of string
+  (* | Score *)
   | Malformed
 
 let nospaces str = if str = "" then false else true
