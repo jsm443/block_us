@@ -69,6 +69,17 @@ val check_piece_in_list : game -> piece -> bool
     the piece list of the player whos current turn it is in, and
     therefore is still available to be used. Otherwise returns [false]. *)
 
+val check_borders : point list -> game -> bool
+(** [check_borders piececoords game] Checks if any of the coordinates in
+    [piececoords] (which include the piece and its borders) are already
+    on the board. Returns [false] if this is the case. Otherwise returns
+    [true] *)
+
+val check_not_on_board : piece -> point -> bool
+(** [check_not_on_board piece loc] Checks if [piece] is a valid piece
+    that can be placed on the board and that it was not already used.
+    Return [true] if valid. Otherwise return [false] *)
+
 val move : game -> piece -> int -> char -> result
 (** [move game piece row col] returns a [Valid game] with [piece] moved
     to the position specified by [row] and [col] if this is a valid

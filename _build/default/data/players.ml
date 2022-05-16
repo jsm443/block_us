@@ -253,7 +253,7 @@ let check_not_overlapping_pieces
   is_overlap current_game.board
     (Pieces.place tile loc (Board.get_empty_board 15))
 
-let check_on_board (tile : piece) (loc : point) =
+let check_not_on_board (tile : piece) (loc : point) =
   match Pieces.place tile loc (Board.get_empty_board 15) with
   | exception _ -> false
   | _ -> true
@@ -285,7 +285,7 @@ let is_valid_first_move
   else true
 
 let valid_placement (current_game : game) (tile : piece) (loc : point) =
-  check_on_board tile loc
+  check_not_on_board tile loc
   && (if not (is_first_turn current_game) then
       check_corners
         (corners_to_check (get_piece_coordinates tile loc) [])
@@ -294,7 +294,7 @@ let valid_placement (current_game : game) (tile : piece) (loc : point) =
   && check_borders
        (borders_to_check (get_piece_coordinates tile loc) [])
        current_game
-  && check_on_board tile loc
+  && check_not_on_board tile loc
   && check_not_overlapping_pieces current_game tile loc
   && check_piece_in_list current_game tile
 

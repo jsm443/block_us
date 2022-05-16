@@ -1,3 +1,30 @@
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:0:Print Board.
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:0:Print Board is successful.
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:0:Print Board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:0:Print Board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:0:Print Board is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:0:Print Board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:4:(Test4) valid placement, player 1 places piece on a non-empty board, not touching corners.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:6:(Test6) valid placement, player 1 tries to place that is not in their piece list/already on the board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:6:(Test6) valid placement, player 1 tries to place that is not in their piece list/already on the board is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:6:(Test6) valid placement, player 1 tries to place that is not in their piece list/already on the board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:12:(Test 1) check empty list returns true.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:12:(Test 1) check empty list returns true is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:12:(Test 1) check empty list returns true.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:15:(Test 4) checking if piece is in your list after the other
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I:        player placed the piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:15:(Test 4) checking if piece is in your list after the other
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I:        player placed the piece is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:15:(Test 4) checking if piece is in your list after the other
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I:        player placed the piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:20:(Test 2) check overlap of second player placing piece on empty board .
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:20:(Test 2) check overlap of second player placing piece on empty board  is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:20:(Test 2) check overlap of second player placing piece on empty board .
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:23:(Test 5) check overlap of placing piece overlapping other players piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:23:(Test 5) check overlap of placing piece overlapping other players piece is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:23:(Test 5) check overlap of placing piece overlapping other players piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:28:Test Quit lowercase.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:28:Test Quit lowercase is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:28:Test Quit lowercase.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Start test test suite for A2:32:Test see lower case.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: Test test suite for A2:32:Test see lower case is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#01 I: End test test suite for A2:32:Test see lower case.

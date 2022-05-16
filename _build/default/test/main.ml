@@ -43,6 +43,14 @@ let piece_in_list_test
   assert_equal expected_output
     (Players.check_piece_in_list cur_game tile)
 
+let check_not_on_board_test
+    (name : string)
+    (expected_output : bool)
+    (tile : Pieces.piece)
+    (loc : Pieces.point) =
+  name >:: fun _ ->
+  assert_equal expected_output (Players.check_not_on_board tile loc)
+
 let check_corners_test
     (name : string)
     (expected_output : bool)
@@ -140,6 +148,8 @@ let valid_first_move_tests =
       { name = 2; color = Yellow; coordinates = Pieces.p2 }
       { r = 1; c = 'A' };
   ]
+
+let check_not_on_board_tests = []
 
 let get_piece_coordinates_tests =
   [
@@ -248,7 +258,7 @@ let piece_in_list_tests =
       { name = 6; color = Purple; coordinates = Pieces.p6 };
     piece_in_list_test
       "(Test 4) checking if piece is in your list after the other\n\
-      \       player placed the piece" false four_piecer
+      \       player placed the piece" true four_piecer
       { name = 6; color = Yellow; coordinates = Pieces.p6 };
     piece_in_list_test
       "(Test 5) Checking a piece is still in your list after another  \
@@ -302,7 +312,19 @@ let valid_placement_tests =
   ]
 
 let command_tests =
-  [ is_valid_command "Test Place" "place 3 3 'c'" "Place" ]
+  [
+    is_valid_command "Test Place uppercase letter" "Place" "place 3 3 A";
+    is_valid_command "Test place lowercase letter" "Place"
+      "place 3\n       3 c";
+    is_valid_command "Test invalid place input" "Malformed" "place";
+    is_valid_command "Test Quit" "Quit" "Quit";
+    is_valid_command "Test Quit lowercase" "Quit" "quit";
+    is_valid_command "Test Done uppercase" "Done" "Done";
+    is_valid_command "Test done lowercase" "Done" "done";
+    is_valid_command "Test See uppercase " "See" "See 2";
+    is_valid_command "Test see lower case" "See" "see 3";
+    is_valid_command "Test See malformed" "Malformed" "See";
+  ]
 
 let suite =
   "test suite for A2"
@@ -315,7 +337,7 @@ let suite =
            valid_first_move_tests;
            overlap_tests;
            command_tests;
-           get_piece_coordinates_test;
+           get_piece_coordinates_tests;
          ]
 
 let _ = run_test_tt_main suite

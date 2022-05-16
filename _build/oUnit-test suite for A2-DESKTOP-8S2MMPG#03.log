@@ -1,7 +1,27 @@
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:2:(Test2) valid placement.
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: Test test suite for A2:2:(Test2) valid placement has failed.
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: not equal in test test suite for A2:2:(Test2) valid placement.
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: Raised at OUnitAssert.assert_failure in file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: Called from OUnitRunner.run_one_test.(fun) in file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 E: 
-2022-05-16T16:44:21+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:2:(Test2) valid placement.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:2:(Test 2) player 1 places piece on empty board when its their turn, but not in corner.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:2:(Test 2) player 1 places piece on empty board when its their turn, but not in corner is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:2:(Test 2) player 1 places piece on empty board when its their turn, but not in corner.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:9:(Test 2) checking corners when piece is placed on non-empty board and not touching corners to any piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:9:(Test 2) checking corners when piece is placed on non-empty board and not touching corners to any piece is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:9:(Test 2) checking corners when piece is placed on non-empty board and not touching corners to any piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:13:(Test 2) check one piece returns false.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:13:(Test 2) check one piece returns false is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:13:(Test 2) check one piece returns false.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:14:(Test 3) checking if piece is in your list after you placed the  piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:14:(Test 3) checking if piece is in your list after you placed the  piece is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:14:(Test 3) checking if piece is in your list after you placed the  piece.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:21:(Test 3) check overlap of placing non-overlapped piece on a non-empty board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:21:(Test 3) check overlap of placing non-overlapped piece on a non-empty board is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:21:(Test 3) check overlap of placing non-overlapped piece on a non-empty board.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:25:Test place lowercase letter.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:25:Test place lowercase letter is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:25:Test place lowercase letter.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:27:Test Quit.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:27:Test Quit is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:27:Test Quit.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:30:Test done lowercase.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:30:Test done lowercase is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:30:Test done lowercase.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Start test test suite for A2:34:(Test 1) checking coordinate list of piece 1 placed in position 1 A.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: Test test suite for A2:34:(Test 1) checking coordinate list of piece 1 placed in position 1 A is successful.
+2022-05-16T21:34:44+00:00 DESKTOP-8S2MMPG#03 I: End test test suite for A2:34:(Test 1) checking coordinate list of piece 1 placed in position 1 A.
