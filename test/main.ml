@@ -315,7 +315,7 @@ let suite =
            valid_first_move_tests;
            overlap_tests;
            command_tests;
-           get_piece_coordinates_test;
+           get_piece_coordinates_tests;
          ]
 
 let _ = run_test_tt_main suite
