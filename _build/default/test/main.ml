@@ -80,7 +80,8 @@ let is_valid_command
     | Quit -> "Quit"
     | Done -> "Done"
     | See _ -> "See"
-    | Malformed -> "Malformed")
+    | Malformed -> "Malformed"
+    | Score -> "Score")
 
 let get_piece_coordinates_test
     (name : string)
@@ -427,6 +428,9 @@ let command_tests =
     is_valid_command "Test See uppercase " "See" "See 2";
     is_valid_command "Test see lower case" "See" "see 3";
     is_valid_command "Test See malformed" "Malformed" "See";
+    is_valid_command "Test Score uppercase" "Score" "Score";
+    is_valid_command "Test Score lowercase" "Score" "score";
+    is_valid_command "Test Score malformed" "Malformed" "scire";
   ]
 
 let suite =

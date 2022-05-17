@@ -5,7 +5,7 @@ type command =
   | Quit
   | Done
   | See of string
-  (* | Score *)
+  | Score
   | Malformed
 
 let nospaces str = if str = "" then false else true
@@ -18,6 +18,7 @@ let parse str =
   | [] -> Malformed
   | [ "Quit" ] | [ "quit" ] -> Quit
   | [ "Done" ] | [ "done" ] -> Done
+  | [ "Score" ] | [ "score" ] -> Score
   | "See" :: lst | "see" :: lst ->
       if List.length lst = 1 then See (List.hd lst) else Malformed
   | "Place" :: lst | "place" :: lst ->

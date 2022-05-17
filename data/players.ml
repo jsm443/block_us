@@ -67,30 +67,6 @@ type result =
   | GameOver of game
   | Invalid
 
-(*exception Badcheck
-
-  let handle_check_overlap (tile : piece) (boardin : Board.square array
-  array) (loc : point) = let tester = Board.get_empty_board Board.empty
-  in let tester = place tile loc tester in for row = -1 to 6 do for col
-  = -1 to 6 do if boardin.(row + loc.r).(col) != Empty &&
-  tester.(row).(col + Char.code loc.c) != Empty then raise Badcheck else
-  () done done
-
-  let check_overlap (tile : piece) (boardin : Board.square array array)
-  (loc : point) = match handle_check_overlap tile boardin loc with |
-  exception _ -> [] | _ -> []*)
-
-(* (*Checks that the corners touch*) let check_corners (tile : piece)
-   (board : Board.square array array) (loc : point) = raise
-   Unimplemented
-
-   (**Checks that the piece fits completely within the board*) let
-   check_border (tile : piece) (board : Board.square array array)= raise
-   Unimplemented *)
-
-(**Checkts that the pice does not have illegal overlap with another of
-   their own pice*)
-
 let updated_game newboard p1 p2 turn =
   { board = newboard; player1 = p1; player2 = p2; turn }
 

@@ -53,8 +53,8 @@ let take_turn cur_game command : Players.result =
   (*need to make sure command is valid aka piece exists in piece list*)
   (*print_string (String.concat ", " (command));*)
   if Players.check_piece cur_game (List.hd command) then (
-    if is_first_move cur_game then ANSITerminal.resize 75 28
-    else ANSITerminal.resize 75 26;
+    if is_first_move cur_game then ANSITerminal.resize 75 29
+    else ANSITerminal.resize 75 27;
     Players.move cur_game
       (get_piece cur_game command)
       (get_row command) (get_col command))
@@ -102,26 +102,52 @@ let handle_print_piece (p : string) (cur_game : Players.game) =
   | exception _ -> Players.Invalid
   | _ -> Players.Valid cur_game
 
+let get_num_used_pieces (player : Players.player) =
+  List.length player.used_coords
+
+let score_p1 (cur_game : Players.game) : int =
+  89 - get_num_used_pieces cur_game.player1
+
+let score_p2 (cur_game : Players.game) : int =
+  89 - get_num_used_pieces cur_game.player2
+
+let handle_score (cur_game : Players.game) =
+  print_endline "";
+  print_string "Player 1 Score: ";
+  ANSITerminal.print_string [ ANSITerminal.yellow ]
+    (string_of_int (score_p1 cur_game));
+  print_endline "";
+  print_string "Player 2 Score: ";
+  ANSITerminal.print_string
+    [ ANSITerminal.magenta ]
+    (string_of_int (score_p2 cur_game));
+  print_endline "";
+  Players.Valid cur_game
+
 let run_command cur_game command : Players.result =
   match command |> Command.parse with
   | Quit ->
-      ANSITerminal.resize 75 26;
+      ANSITerminal.resize 75 27;
       print_endline "Goodbye!";
       exit 0
   | Place phrase -> take_turn cur_game phrase
   | Done ->
-      if is_first_move cur_game then ANSITerminal.resize 75 28
-      else ANSITerminal.resize 75 26;
+      if is_first_move cur_game then ANSITerminal.resize 75 29
+      else ANSITerminal.resize 75 27;
       handle_done cur_game
   | See p ->
-      if is_first_move cur_game then ANSITerminal.resize 75 32
-      else ANSITerminal.resize 75 30;
+      if is_first_move cur_game then ANSITerminal.resize 75 33
+      else ANSITerminal.resize 75 31;
       handle_print_piece p cur_game
   | Malformed ->
-      if is_first_move cur_game then ANSITerminal.resize 75 27
-      else ANSITerminal.resize 75 25;
+      if is_first_move cur_game then ANSITerminal.resize 75 28
+      else ANSITerminal.resize 75 26;
       print_string "invalid string";
       Invalid
+  | Score ->
+      if is_first_move cur_game then ANSITerminal.resize 75 32
+      else ANSITerminal.resize 75 30;
+      handle_score cur_game
 
 let print_cur_board (cur_game : Players.game) =
   match Print.print_board cur_game.board with
@@ -142,6 +168,10 @@ let print_player (cur_game : Players.game) =
     print_string "or ";
     ANSITerminal.print_string [ ANSITerminal.cyan ] "\"see [piece]\"";
     print_string " to view a piece before placing ";
+    print_endline "";
+    print_string "or ";
+    ANSITerminal.print_string [ ANSITerminal.yellow ] "\"score\"";
+    print_string " to check the current score ";
     print_endline "";
     print_string "or ";
     ANSITerminal.print_string [ ANSITerminal.green ] "\"done\"";
@@ -165,6 +195,10 @@ let print_player (cur_game : Players.game) =
     print_string "or ";
     ANSITerminal.print_string [ ANSITerminal.cyan ] "\"see [piece]\"";
     print_string " to view a piece before placing ";
+    print_endline "";
+    print_string "or ";
+    ANSITerminal.print_string [ ANSITerminal.yellow ] "\"score\"";
+    print_string " to check the current score ";
     print_endline "";
     print_string "or ";
     ANSITerminal.print_string [ ANSITerminal.green ] "\"done\"";
@@ -202,15 +236,15 @@ let rec play_game (cur_game : Players.game) =
       match run_command cur_game command with
       | Valid game -> play_game game
       | Invalid ->
-          if is_first_move cur_game then ANSITerminal.resize 75 29
-          else ANSITerminal.resize 75 27;
+          if is_first_move cur_game then ANSITerminal.resize 75 30
+          else ANSITerminal.resize 75 28;
           print_endline "";
           print_endline "";
           ANSITerminal.print_string [ ANSITerminal.red ]
             "Invalid Input. Try again!";
           play_game cur_game
       | GameOver game ->
-          ANSITerminal.resize 75 27;
+          ANSITerminal.resize 75 28;
           print_endline
             ("The game is over, " ^ Players.get_score game ^ ".");
           exit 0)
@@ -228,7 +262,7 @@ let main () =
     "Welcome to Blokus";
   print_endline "";
   print_endline "";
-  ANSITerminal.resize 75 31;
+  ANSITerminal.resize 75 33;
   play_game
     {
       board = Board.get_empty_board 15;
