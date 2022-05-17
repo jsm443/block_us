@@ -1,5 +1,4 @@
 open Pieces
-(*exception Unimplemented*)
 
 type player = {
   name : string;
@@ -15,36 +14,138 @@ type game = {
   turn : int;
 }
 
-(* let used_coords : point list = [] *)
-
-(* this should be replaced with json to piece list*)
-(*Inializes an array with all pieces in type piece*)
 let init_pieces (col : Board.square) : piece list =
   [
-    { name = 1; color = col; coordinates = p1 };
-    { name = 2; color = col; coordinates = p2 };
-    { name = 3; color = col; coordinates = p3 };
-    { name = 4; color = col; coordinates = p4 };
-    { name = 5; color = col; coordinates = p5 };
-    { name = 6; color = col; coordinates = p6 };
-    { name = 7; color = col; coordinates = p7 };
-    { name = 8; color = col; coordinates = p8 };
-    { name = 9; color = col; coordinates = p9 };
-    { name = 10; color = col; coordinates = p10 };
-    { name = 11; color = col; coordinates = p11 };
-    { name = 12; color = col; coordinates = p12 };
-    { name = 13; color = col; coordinates = p13 };
-    { name = 14; color = col; coordinates = p14 };
-    { name = 15; color = col; coordinates = p15 };
-    { name = 16; color = col; coordinates = p16 };
-    { name = 17; color = col; coordinates = p17 };
-    { name = 18; color = col; coordinates = p18 };
-    { name = 19; color = col; coordinates = p19 };
-    { name = 20; color = col; coordinates = p20 };
-    { name = 21; color = col; coordinates = p21 };
+    {
+      name = 1;
+      color = col;
+      coordinates = List.nth p1 0;
+      all_coords = p1;
+    };
+    {
+      name = 2;
+      color = col;
+      coordinates = List.nth p2 0;
+      all_coords = p2;
+    };
+    {
+      name = 3;
+      color = col;
+      coordinates = List.nth p3 0;
+      all_coords = p3;
+    };
+    {
+      name = 4;
+      color = col;
+      coordinates = List.nth p4 0;
+      all_coords = p4;
+    };
+    {
+      name = 5;
+      color = col;
+      coordinates = List.nth p5 0;
+      all_coords = p5;
+    };
+    {
+      name = 6;
+      color = col;
+      coordinates = List.nth p6 0;
+      all_coords = p6;
+    };
+    {
+      name = 7;
+      color = col;
+      coordinates = List.nth p7 0;
+      all_coords = p7;
+    };
+    {
+      name = 8;
+      color = col;
+      coordinates = List.nth p8 0;
+      all_coords = p8;
+    };
+    {
+      name = 9;
+      color = col;
+      coordinates = List.nth p9 0;
+      all_coords = p9;
+    };
+    {
+      name = 10;
+      color = col;
+      coordinates = List.nth p10 0;
+      all_coords = p10;
+    };
+    {
+      name = 11;
+      color = col;
+      coordinates = List.nth p11 0;
+      all_coords = p11;
+    };
+    {
+      name = 12;
+      color = col;
+      coordinates = List.nth p12 0;
+      all_coords = p12;
+    };
+    {
+      name = 13;
+      color = col;
+      coordinates = List.nth p13 0;
+      all_coords = p13;
+    };
+    {
+      name = 14;
+      color = col;
+      coordinates = List.nth p14 0;
+      all_coords = p14;
+    };
+    {
+      name = 15;
+      color = col;
+      coordinates = List.nth p15 0;
+      all_coords = p15;
+    };
+    {
+      name = 16;
+      color = col;
+      coordinates = List.nth p16 0;
+      all_coords = p16;
+    };
+    {
+      name = 17;
+      color = col;
+      coordinates = List.nth p17 0;
+      all_coords = p17;
+    };
+    {
+      name = 18;
+      color = col;
+      coordinates = List.nth p18 0;
+      all_coords = p18;
+    };
+    {
+      name = 19;
+      color = col;
+      coordinates = List.nth p19 0;
+      all_coords = p19;
+    };
+    {
+      name = 20;
+      color = col;
+      coordinates = List.nth p20 0;
+      all_coords = p20;
+    };
+    {
+      name = 21;
+      color = col;
+      coordinates = List.nth p21 0;
+      all_coords = p21;
+    };
   ]
 
-(*creates a new player with a name and its color*)
+[@@@ocamlformat "disable=true"]
+
 let init_player (n : string) (color : Board.square) : player =
   {
     name = n;
@@ -67,52 +168,21 @@ type result =
   | GameOver of game
   | Invalid
 
-(*exception Badcheck
-
-  let handle_check_overlap (tile : piece) (boardin : Board.square array
-  array) (loc : point) = let tester = Board.get_empty_board Board.empty
-  in let tester = place tile loc tester in for row = -1 to 6 do for col
-  = -1 to 6 do if boardin.(row + loc.r).(col) != Empty &&
-  tester.(row).(col + Char.code loc.c) != Empty then raise Badcheck else
-  () done done
-
-  let check_overlap (tile : piece) (boardin : Board.square array array)
-  (loc : point) = match handle_check_overlap tile boardin loc with |
-  exception _ -> [] | _ -> []*)
-
-(* (*Checks that the corners touch*) let check_corners (tile : piece)
-   (board : Board.square array array) (loc : point) = raise
-   Unimplemented
-
-   (**Checks that the piece fits completely within the board*) let
-   check_border (tile : piece) (board : Board.square array array)= raise
-   Unimplemented *)
-
-(**Checkts that the pice does not have illegal overlap with another of
-   their own pice*)
-
 let updated_game newboard p1 p2 turn =
   { board = newboard; player1 = p1; player2 = p2; turn }
 
-(** Returns coordinates of full piece after inputting piece and starting
-    point*)
 let get_piece_coordinates (tile : piece) (loc : point) =
   tile.coordinates loc
 
-(**Updates the current coordinate list with the new coordintes*)
 let updatecoords (tile : piece) (loc : point) (cur_game : game) =
   if cur_game.turn = 1 then
     get_piece_coordinates tile loc @ cur_game.player1.used_coords
   else get_piece_coordinates tile loc @ cur_game.player2.used_coords
 
-(**takes the coordinates from a new piece (obtained from running
-   get_piece coordinates) and an empty list as to_check and returns a
-   list of corners to check for on the board.*)
-
 let rec borders_to_check
     (piece_coords : point list)
     (to_check
-      (*Pass an empty list to this. It is tail recursive*) :
+      :
       point list) : point list =
   match piece_coords with
   | h :: t ->
@@ -139,9 +209,7 @@ let rec borders_to_check
 
 let rec corners_to_check
     (piece_coords : point list)
-    (to_check
-      (*Pass an empty list to this. It is tail recursive*) :
-      point list) : point list =
+    (to_check : point list) : point list =
   match piece_coords with
   | h :: t ->
       corners_to_check t
@@ -173,13 +241,10 @@ let rec corners_to_check
          fourth @ to_check)
   | [] -> to_check
 
-(**Gets the coordinates of the current player in the games pieces*)
 let get_player_coords game =
   if game.turn = 1 then game.player1.used_coords
   else game.player2.used_coords
 
-(**Checks if the corners of the current player against the a coordinate
-   list (to_check)*)
 let rec check_corners (to_check : point list) (game : game) : bool =
   match to_check with
   | h :: t ->
@@ -187,9 +252,6 @@ let rec check_corners (to_check : point list) (game : game) : bool =
       else check_corners t game
   | [] -> false
 
-(**Checks if any of the tiles from (to_check) match any of the existing
-   game tiles of the color being played. Returns false if so as that
-   would be an illegal move*)
 let rec check_borders (to_check : point list) (game : game) : bool =
   match to_check with
   | h :: t ->
@@ -298,14 +360,8 @@ let valid_placement (current_game : game) (tile : piece) (loc : point) =
   && check_not_overlapping_pieces current_game tile loc
   && check_piece_in_list current_game tile
 
-(*&& check_corners && check_border && check_first_placement &&
-  check_on_board*)
-
-(**Mutates the board and player 1 and player 2 piece arrays *)
-
 let pieces_equal p1 p2 = p1 != p2
 
-(*removes tile from player and updates coords*)
 let remove_tile_from_player
     (player : player)
     (p : piece)
@@ -324,9 +380,6 @@ let nxt_turn cur_game =
   else if cur_game.turn = 2 && cur_game.player1.is_done = false then 1
   else 2
 
-(*checks to see if the specific player made the mode, and if so, removes
-  that pieces from its piece list. beware if player name is neither,
-  there will be a problem!*)
 let place_and_delete_tile (cur_game : game) (tile : piece) (loc : point)
     =
   if cur_game.turn = 1 then
@@ -350,13 +403,6 @@ let move (current_game : game) (tile : piece) (row : int) (col : char) =
     place_and_delete_tile current_game tile loc
   else Invalid
 
-(* let updatecoords (tile : piece) (loc : point) = let rec uc coords =
-   match coords with | [] -> () | h :: t -> used_coords <- h ::
-   !used_coords; uc t in uc (tile.coordinates loc) *)
-
-(* let check_lap cur_game point = if List.mem cur_game.used_coords point
-   then true else false *)
-
 exception NotInPieceList
 
 let print_p (p : piece) =
@@ -379,11 +425,9 @@ let print_piece (piece_name : string) (cur_game : game) =
   if cur_game.turn = 1 then find_p cur_game.player1.pieces
   else find_p cur_game.player2.pieces
 
-(**Returns the score for an individual player*)
 let get_player_score (player : player) : int =
   89 - List.length player.used_coords
 
-(**Returns a string statement of the players scores*)
 let get_score (game : game) : string =
   let p1_score = get_player_score game.player1 in
   let p2_score = get_player_score game.player2 in
@@ -394,3 +438,53 @@ let get_score (game : game) : string =
   in
   win_statement ^ "Player 1's score is " ^ string_of_int p1_score
   ^ ". Player 2's score is " ^ string_of_int p2_score
+
+let rec replace_piece list pos (new_piece : piece) : piece list =
+  match list with
+  | [] -> list
+  | h :: t ->
+      if pos = 0 then new_piece :: replace_piece t (pos - 1) new_piece
+      else h :: replace_piece t (pos - 1) new_piece
+
+let rec find (p:piece) (list: piece list) =
+  match list with
+  | [] -> print_string "error2";raise NotInPieceList
+  | h :: t -> if p.name = h.name then 0 else 1 + find p t
+
+let find_piece_location_in_list (cur_game : game) (p : piece) =
+  if cur_game.turn = 1 then find p cur_game.player1.pieces
+  else if cur_game.turn = 2 then find p cur_game.player2.pieces
+  else (print_string "error1"; raise NotInPieceList)
+
+let get_new_coords (p : piece) (rotation : int) =
+  
+  {
+    name = p.name;
+    color = p.color;
+    coordinates = List.nth p.all_coords (rotation mod 4);
+    all_coords = p.all_coords;
+  }
+
+let rotate_piece (cur_game : game) (p : piece) (rotation : int) : player
+    =
+  if cur_game.turn = 1 && check_piece_in_list cur_game p then
+    {
+      name = cur_game.player1.name;
+      pieces =
+        replace_piece cur_game.player1.pieces
+          (find_piece_location_in_list cur_game p)
+          (get_new_coords p rotation);
+      used_coords = cur_game.player1.used_coords;
+      is_done = cur_game.player1.is_done;
+    }
+  else if cur_game.turn = 2 && check_piece_in_list cur_game p then
+    {
+      name = cur_game.player2.name;
+      pieces =
+        replace_piece cur_game.player2.pieces
+          (find_piece_location_in_list cur_game p)
+          (get_new_coords p rotation);
+      used_coords = cur_game.player2.used_coords;
+      is_done = cur_game.player2.is_done;
+    }
+  else (print_string "error3"; raise NotInPieceList)

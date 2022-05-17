@@ -13,5 +13,8 @@ utop:
 test:
 	OCAMLRUNPARAM=b dune exec test/main.exe
 
+docs:
+	dune build @doc
+
 doc:
 	dune build @doc

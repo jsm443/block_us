@@ -28,6 +28,8 @@ type result =
           or whether something occured that was invalid *)
 
 val init_pieces : Board.square -> piece list
+(**[init_pieces color] initializes a list of 21 pieces for each player
+   according to their [color]*)
 
 val init_player : string -> Board.square -> player
 (**[init_player name color] initializes a new [player] with [name], all
@@ -87,7 +89,7 @@ val move : game -> piece -> int -> char -> result
 
 val get_score : game -> string
 (**[get_score game] Returns a statement containing the score of each
-   player.*)
+   player according to their score in the [game].*)
 
 val print_piece : string -> game -> unit array array
 (**[print_piece piece game] Prints a single piece on a 5x5 grid*)
@@ -99,3 +101,7 @@ val is_valid_first_move : game -> piece -> point -> bool
 val get_piece_coordinates : piece -> point -> point list
 (** [get_piece_coordinates piece pont] Returns coordinates of the full
     [piece] with the starting position as [point]*)
+
+val rotate_piece : game -> piece -> int -> player
+(** [rotate_piece cur_game piece rotation] returns a new player with the
+    selected piece rotated 90 degrees clockwise*)

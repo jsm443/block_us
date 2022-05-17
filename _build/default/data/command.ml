@@ -6,6 +6,7 @@ type command =
   | Done
   | See of string
   | Score
+  | Rotate of object_phrase
   | Malformed
 
 let nospaces str = if str = "" then false else true
@@ -23,4 +24,6 @@ let parse str =
       if List.length lst = 1 then See (List.hd lst) else Malformed
   | "Place" :: lst | "place" :: lst ->
       if lst != [] then Place lst else Malformed
+  | "Rotate" :: lst | "rotate" :: lst ->
+      if List.length lst = 2 then Rotate lst else Malformed
   | _ -> Malformed

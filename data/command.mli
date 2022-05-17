@@ -14,6 +14,7 @@ type command =
   | Done
   | See of string
   | Score
+  | Rotate of object_phrase
   | Malformed
 
 val parse : string -> command

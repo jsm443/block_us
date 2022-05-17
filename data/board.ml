@@ -19,6 +19,7 @@ let empty_5x5 =
     [ Empty; Space; Space; Space; Space; Space ];
     [ Empty; Space; Space; Space; Space; Space ];
     [ Empty; Space; Space; Space; Space; Space ];
+    [ Empty; Space; Space; Space; Space; Space ];
   ]
 
 let makecols n = if n = 0 then Space else Col (Char.chr (n + 64))
