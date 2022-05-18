@@ -21,3 +21,7 @@ doc:
 
 clean:
 	dune clean
+
+zip:
+	rm -f block_us.zip
+	zip -r block_us.zip . -x@exclude.lst
