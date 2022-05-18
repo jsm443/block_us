@@ -1,7 +1,0 @@
-Once the zip is downloaded, run "opam install ansiterminal", 
-and then you can run "make build" and then "make play" in the terminal
-to see the output of our code. 
-
-If you want to move a piece, use command "place [piece] [row] [col]" where 
-[piece] is an int 1-21, [row] is an int 1-21, and [col] is a letter A-N. 
-To quit playing, type "quit."

@@ -44,9 +44,6 @@ let get_empty_board n =
     Array.init n (makerow 14);
   |]
 
-let get_val (r : int) (c : char) (board : square array array) =
-  board.(r).(Char.code c - 64)
-
 let set_board
     (r : int)
     (c : char)

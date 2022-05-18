@@ -308,7 +308,7 @@ let main () =
       ANSITerminal.Underlined;
       ANSITerminal.white;
     ]
-    "Welcome to Blokus";
+    " Welcome to Blokus ";
   print_endline "";
   print_endline "";
   ANSITerminal.resize 75 34;

@@ -9,18 +9,36 @@ open Players
    plan does not explain what modules were tested by OUnit and how test
    cases were developed (black box, glass box, randomized, etc.).
 
-   The correctness of our game is reliant on whether or not any
-   potential move is a valid placement. Thus, our testing heavily
-   emphasizes seeing if our check functions in players.ml, which include
-   check_not_on_board, check_corners, check_borders, check_not_on_board,
-   check_not_overlapping_pieces, and check_piece_in_list return the
-   proper results through example games we created. We wanted to test
-   all of these function individually to understand which of the checks
-   was failing if a placement wasn't working. We also included test
-   cases to check our commands to ensure the user side was working as
-   well. If all of these return passing tests, then we know our program
-   is correct. Test cases were developed using both black and glass box
-   testing. *)
+   In our testing, we focus heavily on testing the placement checks
+   because this is the main feature of our game, making sure pieces are
+   placed correctly and according to the game rules. The correctness of
+   our game is reliant on whether or not any potential move is a valid
+   placement. So, we heavily tested our check functions in players.ml,
+   which include check_not_on_board, check_corners, check_borders,
+   check_not_on_board, check_not_overlapping_pieces, and
+   check_piece_in_list return the proper results through example games
+   we created. We wanted to test all of these function individually to
+   understand which of the checks was failing if a placement wasn't
+   working, and we tested valid_placement too in order to make sure it
+   was properly calling the checks. We also included test cases to check
+   our commands to ensure the user side was working as well. Further, we
+   included test cases for getting piece coordinates to make sure our
+   pieces were constructed correctly. Test cases were developed using
+   both black and glass box testing. When using glass box testing, we
+   looked at the actual code for our checks and tested different paths
+   in our code. For example, when testing check valid first move, we
+   look and saw that there was an if statement so we chose to test the 2
+   possible branches, whether you try to piece first piece on a corner
+   or not. We also implemented black box testing by making test cases
+   based off of edge cases in the specification. For example, when
+   checking overlapping pieces, we wanted to check the case when not
+   overlapping, overlapping with piece of same color, and overlapping
+   with piece of other player's color. We followed the same logic of
+   glass box and black box testing for more complicated functions in
+   order to find any errors. So, our test suite demonstrates correctness
+   of our program because by looking at both the code and specification
+   we were able to test all of the edge cases and make sure our tests
+   were comprehensive. *)
 
 let empty_board = get_empty_board 15
 

@@ -23,9 +23,10 @@ type result =
   | Valid of game
   | GameOver of game
   | Invalid
-      (** [result] represents the state of the game by whether there was
-          a valid move and game should continue or whether the game ends
-          or whether something occured that was invalid *)
+
+(** [result] represents the state of the game by whether there was a
+    valid move and game should continue or whether the game ends or
+    whether something occured that was invalid *)
 
 val init_pieces : Board.square -> piece list
 (**[init_pieces color] initializes a list of 21 pieces for each player

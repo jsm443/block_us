@@ -29,6 +29,3 @@ val get_empty_mini_board : square list list -> square array array
 val set_board : int -> char -> square -> square array array -> unit
 (** [set_board row col square board] updates the square on the board of
     position (row, col) with the new square type *)
-
-val get_val : int -> char -> square array array -> square
-(** NOT SURE IF WE EVER USE THIS -------------*)

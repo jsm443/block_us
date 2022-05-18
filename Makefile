@@ -18,3 +18,6 @@ docs:
 
 doc:
 	dune build @doc
+
+clean:
+	dune clean

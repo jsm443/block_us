@@ -16,135 +16,70 @@ type game = {
 
 let init_pieces (col : Board.square) : piece list =
   [
-    {
-      name = 1;
-      color = col;
-      coordinates = List.nth p1 0;
-      all_coords = p1;
+    {   
+      name = 1; color = col; coordinates = List.nth p1 0; all_coords = p1;
     };
     {
-      name = 2;
-      color = col;
-      coordinates = List.nth p2 0;
-      all_coords = p2;
+      name = 2; color = col; coordinates = List.nth p2 0; all_coords = p2;
+    };
+    { 
+      name = 3; color = col; coordinates = List.nth p3 0; all_coords = p3;
     };
     {
-      name = 3;
-      color = col;
-      coordinates = List.nth p3 0;
-      all_coords = p3;
+      name = 4; color = col; coordinates = List.nth p4 0; all_coords = p4;
     };
     {
-      name = 4;
-      color = col;
-      coordinates = List.nth p4 0;
-      all_coords = p4;
+      name = 5; color = col; coordinates = List.nth p5 0; all_coords = p5;
     };
     {
-      name = 5;
-      color = col;
-      coordinates = List.nth p5 0;
-      all_coords = p5;
+      name = 6; color = col; coordinates = List.nth p6 0; all_coords = p6;
+    };
+    { 
+      name = 7; color = col; coordinates = List.nth p7 0; all_coords = p7;
+    };
+    { 
+      name = 8; color = col; coordinates = List.nth p8 0; all_coords = p8;
     };
     {
-      name = 6;
-      color = col;
-      coordinates = List.nth p6 0;
-      all_coords = p6;
+      name = 9; color = col; coordinates = List.nth p9 0; all_coords = p9;
     };
     {
-      name = 7;
-      color = col;
-      coordinates = List.nth p7 0;
-      all_coords = p7;
+      name = 10; color = col; coordinates = List.nth p10 0; all_coords = p10;
     };
     {
-      name = 8;
-      color = col;
-      coordinates = List.nth p8 0;
-      all_coords = p8;
+      name = 11; color = col; coordinates = List.nth p11 0; all_coords = p11;
     };
     {
-      name = 9;
-      color = col;
-      coordinates = List.nth p9 0;
-      all_coords = p9;
+      name = 12; color = col; coordinates = List.nth p12 0; all_coords = p12;
     };
     {
-      name = 10;
-      color = col;
-      coordinates = List.nth p10 0;
-      all_coords = p10;
+      name = 13; color = col; coordinates = List.nth p13 0; all_coords = p13;
     };
-    {
-      name = 11;
-      color = col;
-      coordinates = List.nth p11 0;
-      all_coords = p11;
+    { 
+      name = 14; color = col; coordinates = List.nth p14 0; all_coords = p14;
     };
-    {
-      name = 12;
-      color = col;
-      coordinates = List.nth p12 0;
-      all_coords = p12;
+    { 
+      name = 15; color = col; coordinates = List.nth p15 0; all_coords = p15;
     };
-    {
-      name = 13;
-      color = col;
-      coordinates = List.nth p13 0;
-      all_coords = p13;
+    { 
+      name = 16; color = col; coordinates = List.nth p16 0; all_coords = p16;
     };
-    {
-      name = 14;
-      color = col;
-      coordinates = List.nth p14 0;
-      all_coords = p14;
+    { 
+      name = 17; color = col; coordinates = List.nth p17 0; all_coords = p17;
     };
-    {
-      name = 15;
-      color = col;
-      coordinates = List.nth p15 0;
-      all_coords = p15;
+    { 
+      name = 18; color = col; coordinates = List.nth p18 0; all_coords = p18;
     };
-    {
-      name = 16;
-      color = col;
-      coordinates = List.nth p16 0;
-      all_coords = p16;
+    { 
+      name = 19; color = col; coordinates = List.nth p19 0; all_coords = p19;
     };
-    {
-      name = 17;
-      color = col;
-      coordinates = List.nth p17 0;
-      all_coords = p17;
+    { 
+      name = 20; color = col; coordinates = List.nth p20 0; all_coords = p20;
     };
-    {
-      name = 18;
-      color = col;
-      coordinates = List.nth p18 0;
-      all_coords = p18;
+    {  
+      name = 21; color = col; coordinates = List.nth p21 0; all_coords = p21;
     };
-    {
-      name = 19;
-      color = col;
-      coordinates = List.nth p19 0;
-      all_coords = p19;
-    };
-    {
-      name = 20;
-      color = col;
-      coordinates = List.nth p20 0;
-      all_coords = p20;
-    };
-    {
-      name = 21;
-      color = col;
-      coordinates = List.nth p21 0;
-      all_coords = p21;
-    };
-  ]
-
-[@@@ocamlformat "disable=true"]
+  ] [@@ocamlformat "disable=true"]
 
 let init_player (n : string) (color : Board.square) : player =
   {
@@ -181,9 +116,7 @@ let updatecoords (tile : piece) (loc : point) (cur_game : game) =
 
 let rec borders_to_check
     (piece_coords : point list)
-    (to_check
-      :
-      point list) : point list =
+    (to_check : point list) : point list =
   match piece_coords with
   | h :: t ->
       borders_to_check t
@@ -446,18 +379,21 @@ let rec replace_piece list pos (new_piece : piece) : piece list =
       if pos = 0 then new_piece :: replace_piece t (pos - 1) new_piece
       else h :: replace_piece t (pos - 1) new_piece
 
-let rec find (p:piece) (list: piece list) =
+let rec find (p : piece) (list : piece list) =
   match list with
-  | [] -> print_string "error2";raise NotInPieceList
+  | [] ->
+      print_string "error2";
+      raise NotInPieceList
   | h :: t -> if p.name = h.name then 0 else 1 + find p t
 
 let find_piece_location_in_list (cur_game : game) (p : piece) =
   if cur_game.turn = 1 then find p cur_game.player1.pieces
   else if cur_game.turn = 2 then find p cur_game.player2.pieces
-  else (print_string "error1"; raise NotInPieceList)
+  else (
+    print_string "error1";
+    raise NotInPieceList)
 
 let get_new_coords (p : piece) (rotation : int) =
-  
   {
     name = p.name;
     color = p.color;
@@ -487,4 +423,6 @@ let rotate_piece (cur_game : game) (p : piece) (rotation : int) : player
       used_coords = cur_game.player2.used_coords;
       is_done = cur_game.player2.is_done;
     }
-  else (print_string "error3"; raise NotInPieceList)
+  else (
+    print_string "error3";
+    raise NotInPieceList)
