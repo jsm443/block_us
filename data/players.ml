@@ -381,17 +381,13 @@ let rec replace_piece list pos (new_piece : piece) : piece list =
 
 let rec find (p : piece) (list : piece list) =
   match list with
-  | [] ->
-      print_string "error2";
-      raise NotInPieceList
+  | [] -> raise NotInPieceList
   | h :: t -> if p.name = h.name then 0 else 1 + find p t
 
 let find_piece_location_in_list (cur_game : game) (p : piece) =
   if cur_game.turn = 1 then find p cur_game.player1.pieces
   else if cur_game.turn = 2 then find p cur_game.player2.pieces
-  else (
-    print_string "error1";
-    raise NotInPieceList)
+  else raise NotInPieceList
 
 let get_new_coords (p : piece) (rotation : int) =
   {
@@ -423,6 +419,4 @@ let rotate_piece (cur_game : game) (p : piece) (rotation : int) : player
       used_coords = cur_game.player2.used_coords;
       is_done = cur_game.player2.is_done;
     }
-  else (
-    print_string "error3";
-    raise NotInPieceList)
+  else raise NotInPieceList
